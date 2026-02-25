@@ -16,44 +16,18 @@
     height: 60px;
   }
   
-  /* Скрываем переключатель языка из header на мобильных */
-  .header__actions .lang-switcher {
-    display: none;
-  }
-  
-  /* Три точки */
-  .icon-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 24px;
-    height: 24px;
-    padding: 4px 0;
-    position: relative;
-    z-index: 1001;
-    cursor: pointer;
-    background: none;
-    border: none;
-  }
-  
-  .icon-menu::before,
-  .icon-menu::after,
-  .icon-menu span {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 5px;
-    background-color: #D4AF37;
-    border-radius: 50%;
-    position: static;
-    transform: none;
-    opacity: 1;
-    transition: none;
-  }
-  
   .header {
     position: relative;
+  }
+}
+
+/* ============================================
+   DESKTOP: 768px+
+   Скрываем переключатель языка из меню
+   ============================================ */
+@media (min-width: 768px) {
+  .menu__body .lang-switcher {
+    display: none !important;
   }
 }
 
