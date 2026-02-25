@@ -1030,7 +1030,7 @@ function initBrandPage() {
     },
     'Автохіт-coolants': {
       name: 'AUTO HiT',
-      image: 'Materials/Автохіт.png',
+      image: 'Materials/AH3.jpg',
       factoryLogo: 'Materials/Автохіт.png',
       productImage1: 'Materials/AT11.jpg',
       productImage2: 'Materials/AT12.jpg',
