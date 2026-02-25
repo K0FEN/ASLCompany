@@ -1,0 +1,135 @@
+/* ============================================
+   RESPONSIVE CSS - MOBILE MENU
+   ============================================ */
+
+/* ============================================
+   MOBILE: 320px - 767px
+   ============================================ */
+@media (max-width: 767px) {
+  /* Header */
+  .header__container {
+    min-height: 5rem;
+    padding: 0.75rem;
+  }
+  
+  .logo img {
+    height: 60px;
+  }
+  
+  /* Скрываем переключатель языка из header на мобильных */
+  .header__actions .lang-switcher {
+    display: none;
+  }
+  
+  /* Три точки */
+  .icon-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    padding: 4px 0;
+    position: relative;
+    z-index: 1001;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .icon-menu::before,
+  .icon-menu::after,
+  .icon-menu span {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: #D4AF37;
+    border-radius: 50%;
+    position: static;
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+  
+  .header {
+    position: relative;
+  }
+}
+
+/* ============================================
+   DESKTOP: 768px+
+   Скрываем переключатель языка из меню
+   ============================================ */
+@media (min-width: 768px) {
+  .menu__body .lang-switcher {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   TABLET: 768px - 1023px
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header__container {
+    min-height: 6rem;
+  }
+  
+  .logo img {
+    height: 80px;
+  }
+}
+
+/* ============================================
+   OTHER RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile font sizes */
+@media (max-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .button {
+    min-height: 44px;
+    padding: 0.875rem 1.75rem;
+  }
+}
+
+/* Hero section */
+@media (max-width: 767px) {
+  .main__container {
+    padding-top: 8rem;
+  }
+  
+  .main__title {
+    font-size: 2.5rem;
+  }
+  
+  .main__text {
+    font-size: 1rem;
+  }
+}
+
+/* Footer */
+@media (max-width: 767px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .footer__policy,
+  .footer__copyright {
+    justify-self: center;
+  }
+  
+  .footer__logo img {
+    height: 80px;
+    margin: 0 auto;
+  }
+}
