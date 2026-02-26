@@ -12,7 +12,7 @@ const translations = {
     'header.order': 'Замовити',
     
     // Home page
-    'home.hero.caption': 'Якісна автохімія для Вашого автомобіля',
+    'home.hero.caption': 'Якісні автотовари для Вашого автомобіля',
     'home.hero.title': 'ASL Company',
     'home.hero.text': 'ASL Company - Ваш Надійний Партнер у Світі Автопродукції',
     'home.hero.button': 'Переглянути асортимент',
@@ -224,7 +224,7 @@ const translations = {
     'header.order': 'Заказать',
     
     // Home page
-    'home.hero.caption': 'Качественная автохимия для Вашего автомобиля',
+    'home.hero.caption': 'Качественные автотовары для Вашего автомобиля',
     'home.hero.title': 'ASL Company',
     'home.hero.text': 'ASL Company - Ваш Надежный Партнер в Мире Автопродукции',
     'home.hero.button': 'Посмотреть ассортимент',
@@ -437,7 +437,7 @@ const translations = {
     'header.order': 'Order',
     
     // Home page
-    'home.hero.caption': 'Quality Auto Chemistry for Your Vehicle',
+    'home.hero.caption': 'Quality Auto Products for Your Vehicle',
     'home.hero.title': 'ASL Company',
     'home.hero.text': 'ASL Company - Your Reliable Partner in the World of Auto Products',
     'home.hero.button': 'View Assortment',

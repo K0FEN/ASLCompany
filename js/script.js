@@ -575,7 +575,7 @@ function initBrandCarousels() {
               const imgStyle = needsWhiteBg ? 'width:100%;height:100%;object-fit:contain;border-radius:8px;display:block;' : 'width:100%;height:142px;object-fit:cover;border-radius:8px;';
               const brandMatch = href.match(/brand=([^&]+)/);
               const brandKey = brandMatch ? decodeURIComponent(brandMatch[1]) : '';
-              const _cc = {'ADVA':'pl','Venol':'de','Kixx':'kr','K1 Lube':'kr','Topla':'si','autopart':'pl','K2':'pl','Senfineco':'de','Atas':'it','Wix Filters':'pl','Knecht':'de','ADVA-brakes':'pl','Venol-brakes':'de','Venol-coolants':'de'}[brandKey] || 'ua';
+              const _cc = {'ADVA':'pl','Venol':'de','Kixx':'kr','K1 Lube':'kr','Topla':'si','autopart':'pl','K2':'pl','Senfineco':'de','Atas':'it','Wix Filters':'pl','Knecht':'de','ADVA-brakes':'pl','Venol-brakes':'de','Venol-coolants':'de','Luksusowy':'pl','RONDEX':'pl','Plax':'pl','Plax-coolants':'pl','Plax-washer':'pl','QUANTUM-washer':'ua'}[brandKey] || 'ua';
               const flagHtml = `<span class="fi fi-${_cc}" style="position:absolute;top:4px;right:4px;font-size:16px;border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,0.4);z-index:2;"></span>`;
               if (needsWhiteBg) {
                 return `<a href="${href}" style="display:block;width:152px;border:1px solid #D4AF37;border-radius:12px;padding:8px;background:${containerBg};transition:transform 0.3s ease;"><div style="${imgWrapperStyle}">${flagHtml}<img src="${src}" alt="${alt}" style="${imgStyle}"></div></a>`;
@@ -1015,7 +1015,7 @@ function initBrandPage() {
     'K2': {
       name: 'K2',
       image: 'Materials/K2.png',
-      factoryLogo: 'Materials/K2.png',
+      factoryLogo: 'Materials/K23.jpg',
       productImage1: 'Materials/K21.jpg',
       productImage2: 'Materials/K22.jpg',
       website: 'https://www.k2-global.com/ua/',
@@ -1024,16 +1024,16 @@ function initBrandPage() {
     'Senfineco': {
       name: 'Senfineco',
       image: 'Materials/Senfineco.jpg',
-      factoryLogo: 'Materials/Senfineco.jpg',
+      factoryLogo: 'Materials/SE3.jpg',
       productImage1: 'Materials/SE2.jpg',
       productImage2: 'Materials/SE1.jpg',
-      website: 'https://senfineco.com.ua/',
+      website: 'https://www.senfineco.de/de/',
       description: 'Senfineco Germany – торгова марка німецької компанії Service Car Technology Vertriebs GmbH, заснованої у 2009 році. Бренд спеціалізується на розробці та виробництві систем автомобільних компонентів, присадок і мастильних матеріалів для сучасних транспортних засобів.\n\nГлобальна присутність: Дослідницькі центри та виробничі підприємства розташовані у Західній та Східній Європі, Північній та Латинській Америці, Центральній Азії. Така географія забезпечує високі стандарти виробництва та постійний контроль якості на всіх етапах.\n\nТехнології та інновації: Кожен продукт проходить численні випробування на відповідність технічним параметрам. Високий рівень автоматизації виробничих циклів та передова система контролю якості гарантують стабільні експлуатаційні характеристики протягом усього життєвого циклу продукту.\n\nСертифікація: Усі виробничі підприємства сертифіковані відповідно до міжнародного стандарту ISO/TS 16949, що підтверджує найвищу якість продукції та виробничих процесів.\n\nСучасні рішення: Продукція Senfineco Germany розроблена з урахуванням особливостей сучасних двигунів та систем – компактних, енергоефективних та технологічно складних. Присадки та технічні засоби бренду забезпечують ефективне обслуговування та очищення компонентів, допомагаючи уникнути дорогого ремонту.\n\nSenfineco Germany – німецька точність для максимальної продуктивності вашого автомобіля.'
     },
     'Atas': {
       name: 'Atas Plak',
       image: 'Materials/Atas.jpg',
-      factoryLogo: 'Materials/Atas.jpg',
+      factoryLogo: 'Materials/PA3.jpg',
       productImage1: 'Materials/PA1.jpg',
       productImage2: 'Materials/PA2.jpg',
       website: 'https://www.atassrl.it/en/',
@@ -1057,8 +1057,8 @@ function initBrandPage() {
       website: 'https://mfc.com.ua/uk/',
       description: 'Антифриз бренду MFC — це високоякісна охолоджувальна рідина, виготовлена за органічною технологією. Призначений для використання в системах охолодження бензинових і дизельних двигунів легкових і вантажних автомобілів, а також спецтехніки. Продукт ефективно захищає двигун від перегріву, замерзання, корозії, утворення накипу та кавітації.\n\nПереваги антифризу бренду MFC:\n\nВідповідає стандарту G12 (OAT).\nЗахищає до -24°C і до +108°C.\nНе містить шкідливих домішок: фосфатів, нітритів, силікатів.\nДо 5 років стабільної роботи системи охолодження.\nВироблено в Україні з дотриманням європейських норм.\nПоставляється у зручній міцній пластиковій каністрі.\n\nРекомендації щодо використання:\n\nНе сумісний  з іншими класами та кольорами — змішування може знизити ефективність захисту.\nЗаміна рідини рекомендується через 5 років або після 150 000 км.\nПеред заливкою важливо промити систему охолодження, особливо при переході з іншого класу рідини.\nНе доливайте воду — рідина вже готова до використання.\nНе відкривайте кришку радіатора на гарячому двигуні — це може бути небезпечно!\n\nАнтифриз бренду MFC — надійний вибір для довготривалого захисту вашого двигуна в будь-яку пору року.'
     },
-    'Active': {
-      name: 'Active',
+    'ACTIVE': {
+      name: 'ACTIVE',
       image: 'Materials/Active.jpg',
       factoryLogo: 'Materials/MFC.jpg',
       productImage1: 'Materials/A1.jpg',
@@ -1079,6 +1079,9 @@ function initBrandPage() {
     'Alyaska': {
       name: 'АЛЯSКА',
       image: 'Materials/Alyaska.jpg',
+      factoryLogo: 'Materials/AL23.jpg',
+      productImage1: 'Materials/AL1.jpg',
+      productImage2: 'Materials/AL2.jpg',
       description: 'АЛЯSКА — бренд охолоджуючих та гальмівних рідин. Продукція забезпечує надійну роботу системи охолодження в будь-яких умовах.\n\nАнтифризи АЛЯSКА захищають від замерзання та перегріву.'
     },
     'NAVIGATOR': {
@@ -1114,7 +1117,7 @@ function initBrandPage() {
     'Wix Filters': {
       name: 'WIX',
       image: 'Materials/Wix Filters.jpg',
-      factoryLogo: 'Materials/Wix Filters.jpg',
+      factoryLogo: 'Materials/WI3.jpg',
       productImage1: 'Materials/WI1.jpg',
       productImage2: 'Materials/WI2.jpg',
       website: 'https://www.wixfilters.com/uk-ua.html',
@@ -1151,7 +1154,7 @@ function initBrandPage() {
     'Yuko': {
       name: 'YUKO',
       image: 'Materials/Yuko.jpg',
-      factoryLogo: '',
+      factoryLogo: 'Materials/YK3.jpg',
       productImage1: 'Materials/YK1.jpg',
       productImage2: 'Materials/YK2.jpg',
       website: 'https://yukoil.com/category/type-smazki/',
@@ -1236,7 +1239,7 @@ function initBrandPage() {
     'Alyaska-coolants': {
       name: 'АЛЯSКА',
       image: 'Materials/Alyaska.jpg',
-      factoryLogo: 'Materials/Alyaska.jpg',
+      factoryLogo: 'Materials/AL23.jpg',
       productImage1: '',
       productImage2: '',
       description: 'АЛЯSКА – бренд антифризів та охолоджувальних рідин, що забезпечують стабільну роботу системи охолодження в будь-яких кліматичних умовах. Продукція розроблена для ефективного захисту двигуна від перегріву влітку та замерзання взимку.\n\nТемпературний діапазон: Охолоджувальні рідини АЛЯSКА зберігають свої властивості в широкому температурному діапазоні – від сильних морозів до екстремальної спеки. Різні варіанти температури замерзання (-24°C, -40°C) дозволяють підібрати оптимальний продукт для регіону експлуатації.\n\nКомплексний захист: Антифризи містять пакет присадок, що захищають систему охолодження від корозії, кавітації, утворення накипу та відкладень. Це продовжує термін служби радіатора, помпи, термостата та інших компонентів системи.\n\nСумісність з двигунами: Продукція підходить для бензинових та дизельних двигунів легкових автомобілів, позашляховиків, мікроавтобусів та легкого комерційного транспорту. Різні класи рідин (G11, G12, G13) забезпечують сумісність з різними типами систем охолодження.\n\nТривалий термін служби: Охолоджувальні рідини АЛЯSКА зберігають свої захисні властивості протягом тривалого часу, що дозволяє збільшити інтервали між заміною та знизити витрати на обслуговування системи охолодження.\n\nАЛЯSКА – стабільна температура двигуна в будь-яку пору року.'
@@ -1286,7 +1289,7 @@ function initBrandPage() {
       name: 'Luksusowy',
       image: 'Materials/Luksusowy.png',
       factoryLogo: 'Materials/Luksusowy.png',
-      productImage1: '',
+      productImage1: 'Materials/LK1.jpg',
       productImage2: '',
       description: 'Luksusowy – бренд омивачів скла, що забезпечує чисте та яскраве скло в будь-яку погоду. Продукція відзначається високою якістю та ефективністю очищення.\n\nОмивачі скла Luksusowy забезпечують відмінну видимість та захист від забруднень, що робить їзду безпечнішою та комфортнішою.'
     },
@@ -1294,15 +1297,15 @@ function initBrandPage() {
       name: 'Autoglas',
       image: 'Materials/Autoglas.jpg',
       factoryLogo: 'Materials/Autoglas.jpg',
-      productImage1: '',
+      productImage1: 'Materials/AG1.jpg',
       productImage2: '',
       description: 'Autoglas – бренд омивачів скла, що пропонує якісні рідини для ефективного очищення лобового та бокового скла автомобіля. Продукція розроблена для забезпечення оптимальної видимості в різних умовах експлуатації.\n\nОмивачі скла Autoglas забезпечують чисте скло та сприяють безпеці на дорозі.'
     },
     'ADICS': {
       name: 'ADICS',
       image: 'Materials/ADICS.jpg',
-      factoryLogo: 'Materials/ADICS.jpg',
-      productImage1: '',
+      factoryLogo: 'Materials/Adics.jpg',
+      productImage1: 'Materials/ADI1.jpg',
       productImage2: '',
       description: 'ADICS – бренд омивачів скла, що забезпечує надійне та ефективне очищення скла автомобіля. Продукція відзначається високою якістю та доступною ціною.\n\nОмивачі скла ADICS забезпечують чисте скло та відмінну видимість в будь-яку погоду.'
     },
@@ -1314,12 +1317,12 @@ function initBrandPage() {
       productImage2: '',
       description: 'АЛЯSКА – бренд омивачів скла, що забезпечує ефективне очищення скла в екстремальних температурних умовах. Продукція розроблена для надійної роботи в будь-яку пору року.\n\nОмивачі скла АЛЯSКА забезпечують чисте скло та відмінну видимість навіть у найсуворіші морози та спекотні літні дні.'
     },
-    'QUANTUM': {
+    'QUANTUM-washer': {
       name: 'QUANTUM',
-      image: 'Materials/Quantum1.jpg',
-      factoryLogo: 'Materials/LEMBERG.png',
-      productImage1: '',
-      productImage2: '',
+      image: 'Materials/Quantum.jpg',
+      factoryLogo: 'Materials/Q33.png',
+      productImage1: 'Materials/Q31.jpg',
+      productImage2: 'Materials/Q32.jpg',
       description: 'QUANTUM – бренд омивачів скла преміум класу від виробника «Лемберг». Продукція забезпечує високоякісне очищення скла та відмінну видимість.\n\nОмивачі скла QUANTUM відзначаються надійністю та ефективністю, що робить їх ідеальним вибором для автовласників, які цінують якість.'
     },
     'Advantage': {
@@ -1334,16 +1337,16 @@ function initBrandPage() {
       name: 'RONDEX',
       image: 'Materials/RONDEX.png',
       factoryLogo: 'Materials/RONDEX.png',
-      productImage1: '',
-      productImage2: '',
+      productImage1: 'Materials/RO1.jpg',
+      productImage2: 'Materials/RO2.jpg',
       description: 'RONDEX – бренд омивачів скла, що забезпечує якісне очищення скла автомобіля. Продукція відзначається ефективністю та надійністю.\n\nОмивачі скла RONDEX забезпечують чисте скло та відмінну видимість, що робить їзду безпечнішою та комфортнішою.'
     },
     'Plax-washer': {
       name: 'Plax',
       image: 'Materials/Plax.jpg',
       factoryLogo: 'Materials/Plax.jpg',
-      productImage1: '',
-      productImage2: '',
+      productImage1: 'Materials/PL1.jpg',
+      productImage2: 'Materials/PL2.jpg',
       description: 'Plax – бренд омивачів скла, що поєднує сучасні технології очищення з надійними захисними властивостями. Продукція забезпечує ефективне очищення скла в будь-яку погоду.\n\nОмивачі скла Plax відзначаються високою якістю та забезпечують чисте скло та відмінну видимість, що сприяє безпеці на дорозі.'
     }
   };
@@ -1355,16 +1358,16 @@ function initBrandPage() {
     'Quantum': 'ua', 'FORSE': 'ua', 'FEON': 'ua', 'Topla': 'si',
     'VEGA': 'ua', 'WPR': 'ua', 'STARTUP': 'ua', 'autopart': 'pl',
     'K2': 'pl', 'Senfineco': 'de', 'Atas': 'it', 'PiTon': 'ua',
-    'ProfiMax': 'ua', 'Active': 'ua', 'Тайфун': 'ua',
-    'Alyaska': 'ua', 'NAVIGATOR': 'ua', 'Експо Хім': 'ua', 'Plax': 'ua', 'МFC': 'ua',
+    'ProfiMax': 'ua', 'ACTIVE': 'ua', 'Тайфун': 'ua',
+    'Alyaska': 'ua', 'NAVIGATOR': 'ua', 'Експо Хім': 'ua', 'Plax': 'pl', 'МFC': 'ua',
     'AF Alpha': 'ua', 'Wix Filters': 'pl', 'Knecht': 'de', 'Shikoo': 'ua',
     'KSN': 'ua', 'Yuko': 'ua', 'Temol': 'ua', 'AVIS1': 'ua',
     'Venol-brakes': 'de', 'ADVA-brakes': 'pl', 'Експо Хім-brakes': 'ua',
     'Alyaska-brakes': 'ua', 'Автохіт-brakes': 'ua', 'Кама-brakes': 'ua', 'High Way-brakes': 'ua',
     'Alyaska-coolants': 'ua', 'Highway-coolants': 'ua', 'Експо Хім-coolants': 'ua', 'Автохіт-coolants': 'ua',
-    'Plax-coolants': 'ua', 'Venol-coolants': 'de',
-    'Luksusowy': 'ua', 'Autoglas': 'ua', 'ADICS': 'ua', 'Аляsка': 'ua',
-    'QUANTUM': 'ua', 'Advantage': 'ua', 'RONDEX': 'ua', 'Plax-washer': 'ua'
+    'Plax-coolants': 'pl', 'Venol-coolants': 'de',
+    'Luksusowy': 'pl', 'Autoglas': 'ua', 'ADICS': 'ua', 'Аляsка': 'ua',
+    'QUANTUM-washer': 'ua', 'Advantage': 'ua', 'RONDEX': 'pl', 'Plax-washer': 'pl'
   };
 
   const brandData = window.brandsData[brandParam];
@@ -1483,17 +1486,17 @@ function initAssortmentFlags() {
     'Quantum': 'ua', 'FORSE': 'ua', 'FEON': 'ua', 'Topla': 'si',
     'VEGA': 'ua', 'WPR': 'ua', 'STARTUP': 'ua', 'autopart': 'pl',
     'K2': 'pl', 'Senfineco': 'de', 'Atas': 'it', 'PiTon': 'ua',
-    'ProfiMax': 'ua', 'Active': 'ua', 'Тайфун': 'ua',
-    'Alyaska': 'ua', 'NAVIGATOR': 'ua', 'Експо Хім': 'ua', 'Plax': 'ua', 'МFC': 'ua',
+    'ProfiMax': 'ua', 'ACTIVE': 'ua', 'Тайфун': 'ua',
+    'Alyaska': 'ua', 'NAVIGATOR': 'ua', 'Експо Хім': 'ua', 'Plax': 'pl', 'МFC': 'ua',
     'AF Alpha': 'ua', 'Wix Filters': 'pl', 'Knecht': 'de', 'Shikoo': 'ua',
     'KSN': 'ua', 'Yuko': 'ua', 'Temol': 'ua', 'AVIS1': 'ua',
-    'Luksusowy': 'ua', 'Autoglas': 'ua', 'ADICS': 'ua', 'Аляsка': 'ua',
-    'QUANTUM': 'ua', 'Advantage': 'ua', 'RONDEX': 'ua',
+    'Luksusowy': 'pl', 'Autoglas': 'ua', 'ADICS': 'ua', 'Аляsка': 'ua',
+    'QUANTUM-washer': 'ua', 'Advantage': 'ua', 'RONDEX': 'pl',
     'Alyaska-coolants': 'ua', 'Highway-coolants': 'ua', 'Експо Хім-coolants': 'ua', 'Автохіт-coolants': 'ua',
-    'Plax-coolants': 'ua', 'Venol-coolants': 'de',
+    'Plax-coolants': 'pl', 'Venol-coolants': 'de',
     'Експо Хім-brakes': 'ua', 'Alyaska-brakes': 'ua', 'ADVA-brakes': 'pl',
     'Venol-brakes': 'de', 'Автохіт-brakes': 'ua', 'Кама-brakes': 'ua', 'High Way-brakes': 'ua',
-    'Plax-washer': 'ua'
+    'Plax-washer': 'pl'
   };
 
   document.querySelectorAll('.item-services__top').forEach(link => {
