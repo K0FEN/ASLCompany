@@ -56,6 +56,11 @@ function initCarousels() {
     if (row.dataset.carouselInit) return;
     row.dataset.carouselInit = "true";
 
+    // Skip if this is on assortment page (brand carousel will handle it)
+    if (document.body.classList.contains('assortment')) {
+      return;
+    }
+
     const nav = document.createElement("div");
     nav.className = "carousel-nav";
     const prev = document.createElement("button");
@@ -281,22 +286,27 @@ function initBrandCarousels() {
     const carousel = document.createElement('div');
     carousel.className = 'brand-carousel';
 
+    const viewport = document.createElement('div');
+    viewport.className = 'brand-carousel__viewport';
+
+    carousel.appendChild(viewport);
+
+    // Navigation buttons container (below carousel)
+    const navContainer = document.createElement('div');
+    navContainer.className = 'carousel-nav';
+
     const prevBtn = document.createElement('button');
     prevBtn.className = 'brand-carousel__btn brand-carousel__btn_prev';
     prevBtn.setAttribute('aria-label', 'Попередній бренд');
     prevBtn.innerHTML = '&#10094;';
-
-    const viewport = document.createElement('div');
-    viewport.className = 'brand-carousel__viewport';
 
     const nextBtn = document.createElement('button');
     nextBtn.className = 'brand-carousel__btn brand-carousel__btn_next';
     nextBtn.setAttribute('aria-label', 'Наступний бренд');
     nextBtn.innerHTML = '&#10095;';
 
-    carousel.appendChild(prevBtn);
-    carousel.appendChild(viewport);
-    carousel.appendChild(nextBtn);
+    navContainer.appendChild(prevBtn);
+    navContainer.appendChild(nextBtn);
 
     // view all button and list
     const viewAllWrap = document.createElement('div');
@@ -304,6 +314,7 @@ function initBrandCarousels() {
     const viewAllBtn = document.createElement('a');
     viewAllBtn.href = '#';
     viewAllBtn.className = 'button';
+    viewAllBtn.setAttribute('data-i18n', 'assortment.viewall');
     viewAllBtn.textContent = 'Переглянути всі бренди';
     viewAllWrap.appendChild(viewAllBtn);
 
@@ -323,6 +334,7 @@ function initBrandCarousels() {
     });
 
     section.querySelector('.services__container').appendChild(carousel);
+    section.querySelector('.services__container').appendChild(navContainer);
     section.querySelector('.services__container').appendChild(viewAllWrap);
     section.querySelector('.services__container').appendChild(fullList);
 
@@ -496,7 +508,7 @@ function initBrandCarousels() {
       const listHtml = logos.map(({href,src,alt}) =>
         `<a href="${href}"><img src="${src}" alt="${alt}"></a>`
       ).join('');
-      const html = `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} - ASL Company</title><link rel="stylesheet" href="css/style.css?v=3" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" /></head><body>
+      const html = `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} - ASL Company</title><link rel="stylesheet" href="css/style.css?v=4" /><link rel="stylesheet" href="css/responsive-new.css?v=6" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" /></head><body>
         <div class="wrapper">
         <header class="header">
           <div class="header__container">
@@ -504,20 +516,39 @@ function initBrandCarousels() {
             <div class="header__navigation">
               <div class="header__menu menu">
                 <nav class="menu__body">
-                  <nav class="menu__body">
-                    <ul class="menu__list">
-                      <li class="menu__item"><a href="index.html" class="menu__link">Головна</a></li>
-                      <li class="menu__item"><a href="about.html" class="menu__link">Про нас</a></li>
-                      <li class="menu__item"><a href="assortiment.html" class="menu__link">Асортимент</a></li>
-                      <li class="menu__item"><a href="news.html" class="menu__link">Новини</a></li>
-                      <li class="menu__item"><a href="vacancies.html" class="menu__link">Вакансії</a></li>
-                      <li class="menu__item"><a href="reviews.html" class="menu__link">Відгуки</a></li>
-                      <li class="menu__item"><a href="contact.html" class="menu__link">Контакти</a></li>
-                    </ul>
-                    <a href="contact.html" class="actions-header__button">Замовити</a>
-                  </nav>
+                  <ul class="menu__list">
+                    <li class="menu__item"><a href="index.html" class="menu__link">Головна</a></li>
+                    <li class="menu__item"><a href="about.html" class="menu__link">Про нас</a></li>
+                    <li class="menu__item"><a href="assortiment.html" class="menu__link">Асортимент</a></li>
+                    <li class="menu__item"><a href="news.html" class="menu__link">Новини</a></li>
+                    <li class="menu__item"><a href="vacancies.html" class="menu__link">Вакансії</a></li>
+                    <li class="menu__item"><a href="reviews.html" class="menu__link">Відгуки</a></li>
+                    <li class="menu__item"><a href="contact.html" class="menu__link">Контакти</a></li>
+                  </ul>
+                  <a href="contact.html" class="actions-header__button">Замовити</a>
+                </nav>
               </div>
               <div class="header__actions actions-header">
+                <div class="lang-switcher">
+                  <button type="button" class="lang-switcher__btn" aria-label="Вибрати мову">
+                    <span class="lang-switcher__code">UA</span>
+                    <span class="lang-switcher__arrow">▼</span>
+                  </button>
+                  <ul class="lang-switcher__dropdown">
+                    <li class="lang-switcher__item lang-switcher__item--active" data-lang="ua">
+                      <span class="lang-switcher__flag">ᴜᴀ</span>
+                      <span class="lang-switcher__label">Українська</span>
+                    </li>
+                    <li class="lang-switcher__item" data-lang="ru">
+                      <span class="lang-switcher__flag">ʀᴜ</span>
+                      <span class="lang-switcher__label">Русский</span>
+                    </li>
+                    <li class="lang-switcher__item" data-lang="en">
+                      <span class="lang-switcher__flag">ᴇɴ</span>
+                      <span class="lang-switcher__label">English</span>
+                    </li>
+                  </ul>
+                </div>
                 <button type="button" class="menu__icon icon-menu"><span></span></button>
               </div>
             </div>
@@ -526,13 +557,13 @@ function initBrandCarousels() {
         <main class="page">
         <section class="page__main main main_services main_pages" style="background:url('${categoryBackground}') center top/cover no-repeat;">
           <div class="main__container main__container_pages">
-            <h1 class="main__title">${title}</h1>
-            <div class="main__text main__text_pages">${categoryDescription}</div>
+            <h1 class="main__title" data-i18n-dynamic="${sectionId}">${title}</h1>
+            <div class="main__text main__text_pages" data-i18n-dynamic="${sectionId}-desc">${categoryDescription}</div>
           </div>
         </section>
         <section class="page__services services">
         <div class="services__container">
-          <h2 class="services__title title hero-reveal hero-reveal--2">Всі бренди</h2>
+          <h2 class="services__title title hero-reveal hero-reveal--2" data-i18n="assortment.allbrands">Всі бренди</h2>
           <div class="brands-grid" style="display:grid;grid-template-columns:repeat(auto-fit,152px);gap:35px;justify-content:center;">
             ${logos.map(({href,src,alt}) => {
               const isVegaInBatteries = categoryName === 'Акумулятори' && (alt === 'VEGA' || alt === 'vega' || alt.toLowerCase() === 'vega');
@@ -554,25 +585,25 @@ function initBrandCarousels() {
             }).join('')}
           </div>
           <div style="text-align:center;margin-top:40px;">
-            <a class="button back-to-assortment" href="${anchorLink}" style="background:transparent;border:2px solid #D4AF37;color:#D4AF37;">Назад до асортименту</a>
+            <a class="button back-to-assortment" href="${anchorLink}" style="background:transparent;border:2px solid #D4AF37;color:#D4AF37;" data-i18n="assortment.back">Назад до асортименту</a>
           </div>
         </div>
         </section>
         <section class="page__outro outro outro_services">
           <div class="outro__container">
-            <h2 class="outro__title title">Зв'яжіться з нами</h2>
-            <div class="outro__text">
+            <h2 class="outro__title title" data-i18n="assortment.outro.title">Зв'яжіться з нами</h2>
+            <div class="outro__text" data-i18n="assortment.outro.text">
               Зацікавила наша продукція? Зв'яжіться з нами для отримання додаткової інформації та консультації.
             </div>
-            <a href="contact.html" class="outro__button button">Контакти</a>
+            <a href="contact.html" class="outro__button button" data-i18n="assortment.outro.button">Контакти</a>
           </div>
         </section>
         </main>
         <footer class="footer">
           <div class="footer__container">
-            <a href="#" class="footer__policy">Політика конфіденційності – Умови використання</a>
+            <a href="#" class="footer__policy" data-i18n="footer.policy">Політика конфіденційності – Умови використання</a>
             <a href="index.html" class="footer__logo logo"><img src="Materials/erasebg-transformed.png" alt="ASL Company logo" /></a>
-            <div class="footer__copyright">Copyright © 2025 ASL Company – Всі права захищені</div>
+            <div class="footer__copyright" data-i18n="footer.copyright">Copyright © 2025 ASL Company – Всі права захищені</div>
           </div>
         </footer>
         </div>
@@ -581,12 +612,210 @@ function initBrandCarousels() {
             background: #D4AF37 !important;
             color: #0a0a0a !important;
           }
+          
+          /* Mobile menu styles */
+          @media (max-width: 767px) {
+            .icon-menu {
+              display: block;
+              width: 30px;
+              height: 22px;
+              position: relative;
+              cursor: pointer;
+              background: none;
+              border: none;
+              z-index: 1001;
+            }
+            
+            .icon-menu span,
+            .icon-menu::before,
+            .icon-menu::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: #D4AF37;
+              transition: all 0.3s ease;
+            }
+            
+            .icon-menu::before { top: 0; }
+            .icon-menu span { top: 50%; margin-top: -1px; }
+            .icon-menu::after { bottom: 0; }
+            
+            .menu-open .icon-menu span { transform: scale(0); }
+            .menu-open .icon-menu::before { top: 50%; transform: rotate(-45deg); margin-top: -1px; }
+            .menu-open .icon-menu::after { bottom: 50%; transform: rotate(45deg); margin-bottom: -1px; }
+            
+            .menu__body {
+              position: absolute;
+              top: 100%;
+              right: 1rem;
+              width: 220px;
+              max-width: calc(100vw - 2rem);
+              margin-top: 0.5rem;
+              background: rgba(10, 10, 10, 0.75);
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(212, 175, 55, 0.4);
+              border-radius: 12px;
+              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+              opacity: 0;
+              visibility: hidden;
+              transform: translateY(-10px);
+              transition: all 0.25s ease;
+              z-index: 1000;
+              padding: 0.5rem 0;
+            }
+            
+            .menu-open .menu__body {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+            
+            .menu__list {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            .menu__item {
+              border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            }
+            
+            .menu__item:last-child {
+              border-bottom: none;
+            }
+            
+            .menu__link {
+              display: block;
+              padding: 0.875rem 1.25rem;
+              color: #e8e8e8;
+              text-decoration: none;
+              transition: background 0.2s ease;
+              font-size: 1rem;
+            }
+            
+            .menu__link:hover {
+              background: rgba(212, 175, 55, 0.15);
+              color: #D4AF37;
+            }
+            
+            .menu__body .actions-header__button {
+              display: block;
+              margin: 0.75rem 1.25rem;
+              padding: 0.75rem 1.5rem;
+              text-align: center;
+              background: transparent;
+              border: 2px solid #D4AF37;
+              color: #D4AF37;
+              text-decoration: none;
+              border-radius: 8px;
+              transition: all 0.3s ease;
+            }
+            
+            .menu__body .actions-header__button:hover {
+              background: #D4AF37;
+              color: #0a0a0a;
+            }
+          }
         </style>
         <script>
           document.querySelector(".icon-menu")?.addEventListener("click", function(event) {
             event.preventDefault();
             document.body.classList.toggle("menu-open");
           });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+            const menuBody = document.querySelector(".menu__body");
+            const iconMenu = document.querySelector(".icon-menu");
+            const isMenuOpen = document.body.classList.contains("menu-open");
+            
+            if (isMenuOpen && menuBody && !menuBody.contains(event.target) && !iconMenu.contains(event.target)) {
+              document.body.classList.remove("menu-open");
+            }
+          });
+          
+          // Close menu when clicking on menu links
+          document.querySelectorAll(".menu__link").forEach(link => {
+            link.addEventListener("click", function() {
+              document.body.classList.remove("menu-open");
+            });
+          });
+        </script>
+        <script src="js/translations.js"></script>
+        <script src="js/i18n-init.js"></script>
+        <script>
+          // Initialize language switcher
+          function initLangSwitcher() {
+            const switchers = document.querySelectorAll('.lang-switcher');
+            
+            switchers.forEach(switcher => {
+              const btn = switcher.querySelector('.lang-switcher__btn');
+              const items = switcher.querySelectorAll('.lang-switcher__item');
+              
+              if (!btn) return;
+              
+              // Toggle dropdown
+              btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Close other switchers
+                document.querySelectorAll('.lang-switcher').forEach(s => {
+                  if (s !== switcher) s.classList.remove('open');
+                });
+                switcher.classList.toggle('open');
+              });
+              
+              // Language selection
+              items.forEach(item => {
+                item.addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  const lang = item.dataset.lang;
+                  
+                  // Close dropdown
+                  switcher.classList.remove('open');
+                  
+                  // Translate page
+                  if (typeof translations !== 'undefined' && translations[lang]) {
+                    translatePage(lang);
+                    localStorage.setItem('asl-lang', lang);
+                  }
+                });
+              });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+              switchers.forEach(s => s.classList.remove('open'));
+            });
+          }
+          
+          // Apply saved language on page load
+          function applySavedLanguage() {
+            const savedLang = localStorage.getItem('asl-lang');
+            if (savedLang && typeof translations !== 'undefined' && translations[savedLang]) {
+              translatePage(savedLang);
+              
+              // Update active state in language switcher
+              document.querySelectorAll('.lang-switcher__item').forEach(item => {
+                if (item.dataset.lang === savedLang) {
+                  item.classList.add('lang-switcher__item--active');
+                } else {
+                  item.classList.remove('lang-switcher__item--active');
+                }
+              });
+              
+              // Update button text
+              const langCodes = { ua: 'UA', ru: 'RU', en: 'EN' };
+              document.querySelectorAll('.lang-switcher__code').forEach(code => {
+                code.textContent = langCodes[savedLang] || 'UA';
+              });
+            }
+          }
+          
+          // Initialize on load
+          initLangSwitcher();
+          applySavedLanguage();
         </script>
       </body></html>`;
       document.open();
@@ -1500,6 +1729,9 @@ function translatePage(lang) {
   // Update language switcher display
   updateLanguageSwitcher(lang);
 }
+
+// Make translatePage globally accessible
+window.translatePage = translatePage;
 
 // Function to update brand description on language change
 function updateBrandDescription(lang) {

@@ -3,6 +3,154 @@
    ============================================ */
 
 /* ============================================
+   LANGUAGE SWITCHER - ALWAYS VISIBLE
+   ============================================ */
+.lang-switcher {
+  position: relative;
+  z-index: 100;
+}
+
+.lang-switcher__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  color: #D4AF37;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-switcher__btn:hover {
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.lang-switcher__code {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #D4AF37;
+}
+
+.lang-switcher__arrow {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+  color: #D4AF37;
+}
+
+.lang-switcher.open .lang-switcher__arrow {
+  transform: rotate(180deg);
+}
+
+.lang-switcher__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  background: rgba(20, 20, 20, 0.98);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+}
+
+.lang-switcher.open .lang-switcher__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-switcher__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.lang-switcher__item:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.lang-switcher__item--active {
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.lang-switcher__item--active::after {
+  content: "✓";
+  margin-left: auto;
+  color: #D4AF37;
+}
+
+.lang-switcher__flag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.lang-switcher__label {
+  font-size: 0.95rem;
+  color: #e8e8e8;
+}
+
+/* ============================================
+   MOBILE MENU STYLES
+   ============================================ */
+
+/* Гамбургер кнопка */
+.icon-menu {
+  display: none;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.icon-menu span,
+.icon-menu::before,
+.icon-menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #D4AF37;
+  transition: all 0.3s ease;
+}
+
+.icon-menu::before { top: 0; }
+.icon-menu span { top: 50%; margin-top: -1px; }
+.icon-menu::after { bottom: 0; }
+
+/* Анімація гамбургера при відкритті */
+.menu-open .icon-menu span {
+  transform: scale(0);
+}
+
+.menu-open .icon-menu::before {
+  top: 50%;
+  transform: rotate(-45deg);
+  margin-top: -1px;
+}
+
+.menu-open .icon-menu::after {
+  bottom: 50%;
+  transform: rotate(45deg);
+  margin-bottom: -1px;
+}
+
+/* ============================================
    MOBILE: 320px - 767px
    ============================================ */
 @media (max-width: 767px) {
@@ -18,6 +166,85 @@
   
   .header {
     position: relative;
+  }
+  
+  /* Показуємо гамбургер на мобільних */
+  .icon-menu {
+    display: block;
+  }
+  
+  /* Dropdown меню */
+  .menu__body {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    width: 220px;
+    max-width: calc(100vw - 2rem);
+    margin-top: 0.5rem;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+    z-index: 1000;
+    padding: 0.5rem 0;
+  }
+  
+  .menu-open .menu__body {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu__item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  .menu__item:last-child {
+    border-bottom: none;
+  }
+  
+  .menu__link {
+    display: block;
+    padding: 0.875rem 1.25rem;
+    color: #e8e8e8;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    font-size: 1rem;
+  }
+  
+  .menu__link:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: #D4AF37;
+  }
+  
+  /* Кнопка "Замовити" в меню */
+  .menu__body .actions-header__button {
+    display: block;
+    margin: 0.75rem 1.25rem;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu__body .actions-header__button:hover {
+    background: #D4AF37;
+    color: #0a0a0a;
   }
 }
 
@@ -72,6 +299,18 @@
     min-height: 44px;
     padding: 0.875rem 1.75rem;
   }
+  
+  /* Hero button - make it narrower and adjust text */
+  .main__button {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.875rem 0.75rem;
+    font-size: 0.9rem;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
+  }
 }
 
 /* Hero section */
@@ -86,6 +325,267 @@
   
   .main__text {
     font-size: 1rem;
+  }
+  
+  /* Services section - horizontal carousel showing 2 items */
+  .services__row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.75rem;
+    padding: 0 0 1rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    justify-content: flex-start;
+  }
+  
+  .services__row::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .services__column {
+    flex: 0 0 48%;
+    min-width: 48%;
+    max-width: 48%;
+    scroll-snap-align: center;
+  }
+  
+  .services__column:first-child {
+    margin-left: 2%;
+  }
+  
+  .item-services {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .item-services__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    width: 100%;
+  }
+  
+  .item-services__image {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .item-services__image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .item-services__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+  }
+  
+  .item-services__text {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    flex-grow: 1;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .item-services__button {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  /* Carousel navigation buttons */
+  .carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .carousel-nav__btn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .carousel-nav__btn:active {
+    background: rgba(212, 175, 55, 0.2);
+  }
+  
+  /* Brand carousel on assortment page - ONLY for assortment page */
+  .assortment .brand-carousel {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    margin: 2rem auto;
+  }
+  
+  .assortment .brand-carousel__viewport {
+    position: relative;
+    left: 0 !important; /* Override desktop left: 13.2% */
+    min-height: 180px;
+    overflow: visible;
+    margin: 0 auto;
+  }
+  
+  .assortment .brand-slide {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -75px; /* Half of card width (150px / 2) */
+    margin-top: -75px; /* Half of card height (150px / 2) */
+    transition: all 0.35s ease;
+    will-change: transform, opacity;
+  }
+  
+  .assortment .brand-slide a {
+    display: block;
+    width: 150px !important;
+    height: 150px !important;
+    padding: 8px;
+    border: 1px solid #D4AF37;
+    border-radius: 12px;
+    background: #1a1a1a;
+    transition: transform 0.3s ease;
+  }
+  
+  .assortment .brand-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  /* Navigation buttons for brand carousel - ONLY for assortment */
+  .assortment .carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #D4AF37;
+    background: transparent;
+    color: #D4AF37;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static !important; /* Override desktop positioning */
+    left: auto !important;
+    right: auto !important;
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn:active {
+    background: rgba(212, 175, 55, 0.2);
+  }
+  
+  /* View all brands button - ONLY for assortment */
+  .assortment .brand-viewall {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .assortment .brand-viewall .button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Hide original services row on mobile when carousel is active - ONLY for assortment */
+  .assortment .services__row {
+    display: none;
+  }
+}
+
+/* ============================================
+   DESKTOP: 768px+ - Minimal overrides for brand carousel
+   ============================================ */
+@media (min-width: 768px) {
+  /* Don't adjust carousel positioning - it's centered by default */
+  .assortment .brand-carousel__viewport {
+    right: 55% !important; /* Shift slightly left from 13.2% */
+  }
+  /* Desktop carousel navigation - position buttons on sides of carousel */
+  .assortment .carousel-nav {
+    display: block;
+    position: relative;
+    margin-top: -200px; /* Move up to overlap with carousel */
+    margin-bottom: 220px; /* Add bottom margin to prevent overlap with button below */
+    height: 0;
+    pointer-events: none;
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 65px; /* Move down to center vertically with carousel */
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    pointer-events: all;
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn_prev {
+    left: 13%; /* Shift arrows to match centered carousel */
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn_next {
+    right: 7.8%; /* Move right arrow further right */
+  }
+  
+  .assortment .carousel-nav .brand-carousel__btn:hover {
+    background: rgba(212, 175, 55, 0.2);
+  }
+  
+  /* Keep services__row hidden on desktop - carousel handles display */
+  .assortment .services__row {
+    display: none;
   }
 }
 
