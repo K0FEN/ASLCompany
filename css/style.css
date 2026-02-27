@@ -729,9 +729,9 @@ html, body { overflow-x: hidden; }
 
 .brand-carousel__viewport {
   position: relative;
-  left: 13.2%;
-  transform: translateX(-50%);
-  width: calc(2 * 320px + var(--brand-gap)); /* будет переопределено из JS фактической шириной */
+  left: auto;
+  transform: none;
+  width: calc(2 * 320px + var(--brand-gap));
   height: 320px;
   margin: 0 auto;
   overflow: visible;
@@ -743,7 +743,7 @@ html, body { overflow-x: hidden; }
 .brand-carousel__viewport img { background: #ffffff; }
 
 /* Brand carousel slide transitions */
-.brand-slide { position: absolute; left: 50%; top: 0; z-index: 1; transition: transform 0.35s ease, opacity 0.35s ease; will-change: transform, opacity; }
+.brand-slide { position: absolute; left: 50%; top: 50%; margin-top: -130px; z-index: 1; transition: transform 0.35s ease, opacity 0.35s ease; will-change: transform, opacity; }
 .brand-slide--active { z-index: 2; }
 .brand-slide--on-top { z-index: 3; }
 .brand-slide--behind { z-index: 0; }

@@ -283,17 +283,24 @@ function initBrandCarousels() {
     }).filter(v => v.src);
 
     // build carousel UI
+    // Wrapper that centers everything regardless of parent styles
+    const carouselWrapper = document.createElement('div');
+    carouselWrapper.style.cssText = 'width:100%;display:block;text-align:center;';
+
     const carousel = document.createElement('div');
     carousel.className = 'brand-carousel';
+    carousel.style.cssText = 'position:relative;overflow:visible;margin:2rem auto 0;display:block;';
 
     const viewport = document.createElement('div');
     viewport.className = 'brand-carousel__viewport';
 
     carousel.appendChild(viewport);
+    carouselWrapper.appendChild(carousel);
 
     // Navigation buttons container (below carousel)
     const navContainer = document.createElement('div');
     navContainer.className = 'carousel-nav';
+    navContainer.style.cssText = 'display:flex;justify-content:center;align-items:center;gap:1rem;margin-top:1.5rem;width:100%;';
 
     const prevBtn = document.createElement('button');
     prevBtn.className = 'brand-carousel__btn brand-carousel__btn_prev';
@@ -307,16 +314,19 @@ function initBrandCarousels() {
 
     navContainer.appendChild(prevBtn);
     navContainer.appendChild(nextBtn);
+    carouselWrapper.appendChild(navContainer);
 
     // view all button and list
     const viewAllWrap = document.createElement('div');
     viewAllWrap.className = 'brand-viewall';
+    viewAllWrap.style.cssText = 'text-align:center;margin-top:2rem;width:100%;';
     const viewAllBtn = document.createElement('a');
     viewAllBtn.href = '#';
     viewAllBtn.className = 'button';
     viewAllBtn.setAttribute('data-i18n', 'assortment.viewall');
     viewAllBtn.textContent = 'Переглянути всі бренди';
     viewAllWrap.appendChild(viewAllBtn);
+    carouselWrapper.appendChild(viewAllWrap);
 
     const fullList = document.createElement('div');
     fullList.className = 'brand-list';
@@ -333,9 +343,7 @@ function initBrandCarousels() {
       fullList.appendChild(item);
     });
 
-    section.querySelector('.services__container').appendChild(carousel);
-    section.querySelector('.services__container').appendChild(navContainer);
-    section.querySelector('.services__container').appendChild(viewAllWrap);
+    section.querySelector('.services__container').appendChild(carouselWrapper);
     section.querySelector('.services__container').appendChild(fullList);
 
     let index = 0;
@@ -377,22 +385,32 @@ function initBrandCarousels() {
     function layout() {
       if (state.GAP == null) state.GAP = getGap();
       const GAP = state.GAP;
-      // измеряем и кешируем фактическую ширину логотипа (один раз)
+      // вимірюємо фактичну ширину логотипа
       if (state.W == null) {
         const anyImg = (nodes.mainLeft && nodes.mainLeft.querySelector('img')) || (nodes.mainRight && nodes.mainRight.querySelector('img'));
         state.W = anyImg ? Math.round(anyImg.getBoundingClientRect().width) : 260;
       }
       const W = state.W;
-      // задаем размеры вьюпорта исходя из фактической ширины
-      viewport.style.width = `${2 * W + GAP}px`;
-      viewport.style.height = `${W}px`;
+      const totalW = 2 * W + GAP;
+
+      // Примусово центруємо через inline styles — перебиваємо будь-який CSS
+      viewport.style.cssText = `position:relative;left:auto;right:auto;transform:none;width:${totalW}px;height:${W}px;margin:0 auto;overflow:visible;display:block;`;
+      carousel.style.width = `${totalW}px`;
+      carousel.style.marginLeft = 'auto';
+      carousel.style.marginRight = 'auto';
+      // кнопки — 100% ширини контейнера, justify-content:center центрує їх по середині сторінки
+      navContainer.style.width = '100%';
+      navContainer.style.position = 'static';
+      navContainer.style.marginLeft = '0';
+      navContainer.style.marginRight = '0';
+
       // offsets from center
       const mainL = - (GAP/2 + W/2);
       const mainR =   (GAP/2 + W/2);
-      const peekOffset = W * (1 - PEEK_VISIBLE); // показать ровно 20% ширины
+      const peekOffset = W * (1 - PEEK_VISIBLE);
       const peekL = - (GAP/2 + W/2 + peekOffset);
       const peekR =   (GAP/2 + W/2 + peekOffset);
-      // expose measured width for arrow positioning in CSS
+
       carousel.style.setProperty('--brand-logo-w', `${W}px`);
       if (nodes.peekLeft)  { nodes.peekLeft.style.transform  = `translateX(${peekL}px) scale(${PEEK_SCALE})`; nodes.peekLeft.style.opacity = PEEK_OPACITY; nodes.peekLeft.style.zIndex = 1; }
       if (nodes.mainLeft)  { nodes.mainLeft.style.transform  = `translateX(${mainL}px) scale(1)`; nodes.mainLeft.style.opacity = 1; nodes.mainLeft.style.zIndex = 3; }

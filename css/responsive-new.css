@@ -259,16 +259,6 @@
 }
 
 /* ============================================
-   DESKTOP: 768px+
-   Скрываем переключатель языка из меню
-   ============================================ */
-@media (min-width: 768px) {
-  .menu__body .lang-switcher {
-    display: none !important;
-  }
-}
-
-/* ============================================
    TABLET: 768px - 1023px
    ============================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -443,28 +433,36 @@
   }
   
   /* Brand carousel on assortment page - ONLY for assortment page */
+  
+  /* Центруємо всі дочірні елементи через контейнер */
+  .assortment .services__container {
+    display: block;
+    text-align: center;
+  }
+
   .assortment .brand-carousel {
     position: relative;
-    width: 100%;
     overflow: visible;
-    margin: 2rem auto;
+    margin: 2rem 0 0;
+    display: block;
   }
   
   .assortment .brand-carousel__viewport {
-    position: relative;
-    left: 38.5% !important;
-    transform: translateX(-50%) !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
     min-height: 180px;
     overflow: visible;
-    margin: 0 auto;
+    /* Ширина встановлюється JS — слайди центруються відносно неї */
   }
   
   .assortment .brand-slide {
-    position: absolute;
+    position: center;
     left: 50%; 
     top: 50%;
-    margin-left: -75px; /* Half of card width (150px / 2) */
-    margin-top: -75px; /* Half of card height (150px / 2) */
+    margin-left: -75px;
+    margin-top: -75px;
     transition: all 0.35s ease;
     will-change: transform, opacity;
   }
@@ -497,6 +495,7 @@
     padding-left: 41px;
   }
   
+  
   .assortment .carousel-nav .brand-carousel__btn {
     width: 44px;
     height: 44px;
@@ -510,7 +509,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: static !important; /* Override desktop positioning */
+    position: static !important;
     left: auto !important;
     right: auto !important;
   }
@@ -537,52 +536,101 @@
 }
 
 /* ============================================
-   DESKTOP: 768px+ - Minimal overrides for brand carousel
+   DESKTOP: 768px+ - Brand carousel
    ============================================ */
 @media (min-width: 768px) {
-  /* Don't adjust carousel positioning - it's centered by default */
-  .assortment .brand-carousel__viewport {
-    right: 55% !important; /* Shift slightly left from 13.2% */
-  }
-  /* Desktop carousel navigation - position buttons on sides of carousel */
-  .assortment .carousel-nav {
+  /* Центруємо всі дочірні елементи через контейнер */
+  .assortment .services__container {
     display: block;
+    text-align: center;
+  }
+
+  .assortment .brand-carousel {
     position: relative;
-    margin-top: -200px; /* Move up to overlap with carousel */
-    margin-bottom: 220px; /* Add bottom margin to prevent overlap with button below */
-    height: 0;
-    pointer-events: none;
+    overflow: visible;
+    margin: 2rem 0 0;
+    display: block;
+  }
+  
+  .assortment .brand-carousel__viewport {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    min-height: 280px;
+    overflow: visible;
+  }
+  
+  .assortment .brand-slide {
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+    margin-left: -130px;
+    margin-top: -130px;
+    transition: all 0.35s ease;
+    will-change: transform, opacity;
+  }
+  
+  .assortment .brand-slide a {
+    display: block;
+    width: 260px !important;
+    height: 260px !important;
+    padding: 12px;
+    border: 2px solid #D4AF37;
+    border-radius: 16px;
+    background: #1a1a1a;
+    transition: transform 0.3s ease;
+  }
+  
+  .assortment .brand-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  
+  /* Navigation buttons for brand carousel */
+  .assortment .carousel-nav {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+    width: 100% !important;
   }
   
   .assortment .carousel-nav .brand-carousel__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 65px; /* Move down to center vertically with carousel */
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #D4AF37;
-    color: #D4AF37;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    pointer-events: all;
-  }
-  
-  .assortment .carousel-nav .brand-carousel__btn_prev {
-    left: 13%; /* Shift arrows to match centered carousel */
-  }
-  
-  .assortment .carousel-nav .brand-carousel__btn_next {
-    right: 7.8%; /* Move right arrow further right */
+    width: 50px !important;
+    height: 50px !important;
+    border: 2px solid #D4AF37 !important;
+    background: transparent !important;
+    color: #D4AF37 !important;
+    border-radius: 8px !important;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    top: auto !important;
   }
   
   .assortment .carousel-nav .brand-carousel__btn:hover {
-    background: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.2) !important;
+  }
+  
+  /* View all brands button */
+  .assortment .brand-viewall {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .assortment .brand-viewall .button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
   }
   
   /* Keep services__row hidden on desktop - carousel handles display */
