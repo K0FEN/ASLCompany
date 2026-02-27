@@ -342,7 +342,7 @@
   }
   
   .services__column:first-child {
-    margin-left: 2%;
+    margin-left: calc((100% - (48% * 2 + 0.75rem)) / 2);
   }
   
   .item-services {
