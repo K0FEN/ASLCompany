@@ -259,7 +259,7 @@ function addAssortmentPageAttributes() {
     'Оливи': 'oils',
     'Акумулятори': 'batteries',
     'Автохімія': 'chem',
-    'Охолоджуючі рідини': 'coolants',
+    'Антифриз': 'coolants',
     'Гальмівні рідини': 'brakes',
     'Фільтри': 'filters',
     'Омивач скла': 'washer',

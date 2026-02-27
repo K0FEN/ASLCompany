@@ -256,6 +256,11 @@
   .menu__body .lang-switcher {
     display: none !important;
   }
+  
+  /* Hide pagination indicators on desktop */
+  .services__pagination {
+    display: none !important;
+  }
 }
 
 /* ============================================
@@ -335,14 +340,14 @@
   }
   
   .services__column {
-    flex: 0 0 48%;
-    min-width: 48%;
-    max-width: 48%;
+    flex: 0 0 90%;
+    min-width: 90%;
+    max-width: 90%;
     scroll-snap-align: center;
   }
   
   .services__column:first-child {
-    margin-left: calc((100% - (48% * 2 + 0.75rem)) / 2);
+    margin-left: 5%;
   }
   
   .item-services {
@@ -378,6 +383,40 @@
     object-fit: contain;
   }
   
+  /* Carousel navigation buttons - HIDE on mobile for homepage services */
+  .page__services .carousel-nav {
+    display: none !important;
+  }
+  
+  /* Also hide on tablets (768px - 991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .carousel-nav {
+      display: none !important;
+    }
+  }
+  
+  /* Pagination indicators for services carousel */
+  .services__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .services__dot {
+    width: 32px;
+    height: 4px;
+    background: rgba(212, 175, 55, 0.3);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .services__dot.active {
+    background: #D4AF37;
+    width: 40px;
+  }
+  
   .item-services__title {
     font-size: 1.1rem;
     margin-bottom: 0.6rem;
@@ -406,6 +445,34 @@
     width: auto;
     display: inline-block;
     text-align: center;
+  }
+  
+  /* News section - horizontal carousel */
+  .news__row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding: 0 0 1rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  
+  .news__row::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .news__column {
+    flex: 0 0 85%;
+    min-width: 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+  }
+  
+  .news__column:first-child {
+    margin-left: 7.5%;
   }
   
   /* Carousel navigation buttons */

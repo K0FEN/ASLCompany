@@ -60,6 +60,11 @@ function initCarousels() {
     if (document.body.classList.contains('assortment')) {
       return;
     }
+    
+    // Skip services carousel on homepage - it uses pagination dots instead
+    if (row.classList.contains('services__row') && !document.body.classList.contains('assortment')) {
+      return;
+    }
 
     const nav = document.createElement("div");
     nav.className = "carousel-nav";
@@ -77,7 +82,15 @@ function initCarousels() {
     // insert nav after the row
     row.parentNode.insertBefore(nav, row.nextSibling);
 
-    const scrollByAmount = () => Math.max(row.clientWidth * 0.9, 300);
+    const scrollByAmount = () => {
+      // For news, scroll by one card width
+      if (row.classList.contains('news__row')) {
+        const firstCard = row.querySelector('.news__column');
+        return firstCard ? firstCard.offsetWidth + 16 : row.clientWidth * 0.9;
+      }
+      return Math.max(row.clientWidth * 0.9, 300);
+    };
+    
     prev.addEventListener("click", () => {
       row.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
     });
@@ -495,7 +508,7 @@ function initBrandCarousels() {
         'Оливи': 'Моторні, трансмісійні та гідравлічні оливи від провідних виробників для надійної роботи вашого автомобіля.',
         'Акумулятори': 'Якісні автомобільні акумулятори різних ємностей від провідних виробників з гарантією якості.',
         'Автохімія': 'Рідини та засоби для догляду за автомобілем: шампуні, поліролі та спеціальні засоби для очищення.',
-        'Охолоджуючі рідини': 'Антифриз та охолоджуючі рідини для ефективної роботи системи охолодження двигуна.',
+        'Антифриз': 'Антифриз та охолоджуючі рідини для ефективної роботи системи охолодження двигуна.',
         'Гальмівні рідини': 'Гальмівні рідини різних класів DOT для безпечної та надійної роботи гальмової системи.',
         'Фільтри': 'Повітряні, масляні та паливні фільтри для якісної очистки та захисту двигуна.',
         'Омивач скла': 'Концентрати та готові рідини для омивача скла, ефективні в будь-яку погоду.',
@@ -507,7 +520,7 @@ function initBrandCarousels() {
         'Оливи': 'Materials/oil.jpg',
         'Акумулятори': 'Materials/AKM.jpg',
         'Автохімія': 'Materials/Avtohim.jpg',
-        'Охолоджуючі рідини': 'Materials/Antifriz.jpg',
+        'Антифриз': 'Materials/Antifriz.jpg',
         'Гальмівні рідини': 'Materials/tormoz.jpg',
         'Фільтри': 'Materials/filter.jpg',
         'Омивач скла': 'Materials/steklo.jpg',
@@ -1822,3 +1835,49 @@ function updateLanguageSwitcher(lang) {
 
 // Initialize language system when DOM is ready
 document.addEventListener('DOMContentLoaded', initLanguageSystem);
+
+// ========= Services pagination indicators =========
+function initServicesPagination() {
+  const servicesRow = document.querySelector('.services__row');
+  const dots = document.querySelectorAll('.services__dot');
+  
+  if (!servicesRow || dots.length === 0) return;
+  
+  const totalItems = 8; // Total number of service items
+  
+  // Calculate which page we're on based on scroll position
+  function updateActiveDot() {
+    const scrollLeft = servicesRow.scrollLeft;
+    const containerWidth = servicesRow.offsetWidth;
+    const scrollWidth = servicesRow.scrollWidth;
+    
+    // Calculate the width of one item
+    const itemWidth = scrollWidth / totalItems;
+    
+    // Calculate which item is currently at the start of the viewport
+    const firstVisibleIndex = Math.round(scrollLeft / itemWidth);
+    
+    // Calculate how many items fit in the viewport
+    const itemsVisible = Math.round(containerWidth / itemWidth);
+    
+    // Highlight the dots for visible items
+    dots.forEach((dot, index) => {
+      if (index >= firstVisibleIndex && index < firstVisibleIndex + itemsVisible) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+  
+  // Update on scroll
+  servicesRow.addEventListener('scroll', updateActiveDot);
+  
+  // Update on resize (when orientation changes or window resizes)
+  window.addEventListener('resize', updateActiveDot);
+  
+  // Initial update
+  updateActiveDot();
+}
+
+document.addEventListener('DOMContentLoaded', initServicesPagination);
