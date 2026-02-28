@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест Каруселі</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive-new.css">
+  <style>
+    body { padding: 20px; background: #1a1a1a; color: white; }
+    .test-info { background: #333; padding: 20px; margin: 20px 0; border-radius: 8px; }
+  </style>
+</head>
+<body class="assortment">
+  <div class="test-info">
+    <h1>Тест Каруселі Брендів</h1>
+    <p>Ця сторінка перевіряє, чи працюють кнопки навігації каруселі</p>
+  </div>
+
+  <section class="page__services services" id="test-batteries">
+    <div class="services__container">
+      <h2 class="services__title title">Тестова Секція</h2>
+      <div class="services__row">
+        <div class="services__column">
+          <div class="services__item item-services">
+            <a class="item-services__top" href="#">
+              <div class="item-services__image">
+                <img src="Materials/Quantum1.jpg" alt="Quantum" />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="services__column">
+          <div class="services__item item-services">
+            <a class="item-services__top" href="#">
+              <div class="item-services__image">
+                <img src="Materials/Forse.jpg" alt="Forse" />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="services__column">
+          <div class="services__item item-services">
+            <a class="item-services__top" href="#">
+              <div class="item-services__image">
+                <img src="Materials/Feon.jpg" alt="Feon" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+  
+  <script>
+    // Додатковий лог для дебагу
+    setTimeout(() => {
+      const navButtons = document.querySelectorAll('.carousel-nav');
+      console.log('Знайдено навігаційних контейнерів:', navButtons.length);
+      navButtons.forEach((nav, i) => {
+        console.log(`Контейнер ${i}:`, nav);
+        console.log('  - display:', window.getComputedStyle(nav).display);
+        console.log('  - visibility:', window.getComputedStyle(nav).visibility);
+      });
+    }, 1000);
+  </script>
+</body>
+</html>

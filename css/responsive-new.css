@@ -383,14 +383,14 @@
     object-fit: contain;
   }
   
-  /* Carousel navigation buttons - HIDE on mobile for homepage services */
-  .page__services .carousel-nav {
+  /* Carousel navigation buttons - HIDE on mobile for homepage services (but NOT on assortment page) */
+  body:not(.assortment) .page__services .carousel-nav {
     display: none !important;
   }
   
-  /* Also hide on tablets (768px - 991px) */
+  /* Also hide on tablets (768px - 991px) - but NOT on assortment page */
   @media (min-width: 768px) and (max-width: 991px) {
-    .carousel-nav {
+    body:not(.assortment) .carousel-nav {
       display: none !important;
     }
   }
