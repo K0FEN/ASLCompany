@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="Materials/erasebg-transformed.png" />
   <title>ASL Company - Головна</title>
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="stylesheet" href="css/responsive-new.css?v=22" />
   <script src="js/translations.js"></script>
 </head>
@@ -223,47 +223,50 @@
       </section>
       <section class="page__news news">
         <div class="news__container">
-          <h2 class="news__title title">Останні новини</h2>
+          <h2 class="news__title title" data-i18n="home.news.title">Останні новини</h2>
           <div class="news__row">
             <div class="news__column">
-              <div class="news__item item-news">
+              <div class="news__item item-news" data-news-id="1">
                 <div class="item-news__image">
                   <img src="Materials/oil.jpg" alt="Розширення асортименту" />
                 </div>
-                <h3 class="item-news__title">Розширення асортименту моторних олив</h3>
-                <div class="item-news__text">
+                <h3 class="item-news__title" data-i18n="news.title1">Розширення асортименту моторних олив</h3>
+                <div class="item-news__text" data-i18n="news.text1">
                   Раді повідомити про значне розширення нашого асортименту моторних олив! Тепер у нас представлені нові лінійки від провідних світових виробників.
                 </div>
-                <div class="item-news__date">15 грудня 2025</div>
+                <div class="item-news__date" data-i18n="news.date1">15 грудня 2025</div>
+                <button class="item-news__read-more" data-i18n="news.readmore">Дізнатися більше →</button>
               </div>
             </div>
             <div class="news__column">
-              <div class="news__item item-news">
+              <div class="news__item item-news" data-news-id="2">
                 <div class="item-news__image">
                   <img src="Materials/AKM.jpg" alt="Акумулятори" />
                 </div>
-                <h3 class="item-news__title">Нові акумулятори Quantum та Force Racing</h3>
-                <div class="item-news__text">
+                <h3 class="item-news__title" data-i18n="news.title2">Нові акумулятори Quantum та Force Racing</h3>
+                <div class="item-news__text" data-i18n="news.text2">
                   Поповнили склад якісними акумуляторами від перевірених виробників. Гарантія до 3 років на всю продукцію.
                 </div>
-                <div class="item-news__date">10 грудня 2025</div>
+                <div class="item-news__date" data-i18n="news.date2">10 грудня 2025</div>
+                <button class="item-news__read-more" data-i18n="news.readmore">Дізнатися більше →</button>
               </div>
             </div>
             <div class="news__column">
-              <div class="news__item item-news">
+              <div class="news__item item-news" data-news-id="3">
                 <div class="item-news__image">
                   <img src="Materials/Avtohim.jpg" alt="Автохімія" />
                 </div>
-                <h3 class="item-news__title">Знижки на автохімію до кінця року</h3>
-                <div class="item-news__text">
+                <h3 class="item-news__title" data-i18n="news.title3">Знижки на автохімію до кінця року</h3>
+                <div class="item-news__text" data-i18n="news.text3">
                   Спеціальна пропозиція для наших клієнтів — знижки до 15% на всю автохімію від K2, Atas та PiTon.
                 </div>
-                <div class="item-news__date">5 грудня 2025</div>
+                <div class="item-news__date" data-i18n="news.date3">5 грудня 2025</div>
+                <button class="item-news__read-more" data-i18n="news.readmore">Дізнатися більше →</button>
               </div>
             </div>
           </div>
           <div class="news__button-container">
-            <a href="news.html" class="news__button button">Всі новини</a>
+            <a href="news.html" class="news__button button" data-i18n="home.news.button">Всі новини</a>
           </div>
         </div>
       </section>
@@ -298,6 +301,27 @@
         </div>
       </section>
     </main>
+
+    <!-- Модальне вікно для новин -->
+    <div class="news-modal" id="newsModal">
+      <div class="news-modal__overlay"></div>
+      <div class="news-modal__content">
+        <button class="news-modal__close" aria-label="Закрити">&times;</button>
+        <div class="news-modal__image">
+          <img src="" alt="" id="modalImage" />
+        </div>
+        <div class="news-modal__body">
+          <div class="news-modal__meta">
+            <span class="news-modal__date" id="modalDate"></span>
+            <span class="news-modal__category" id="modalCategory"></span>
+          </div>
+          <h2 class="news-modal__title" id="modalTitle"></h2>
+          <div class="news-modal__text" id="modalText"></div>
+          <a href="contact.html" class="news-modal__button button" data-i18n="news.modal.contact">Зв'язатися з нами</a>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="footer__container">
         <a href="#" class="footer__policy">Політика конфіденційності – Умови використання</a>
@@ -307,6 +331,7 @@
     </footer>
   </div>
   <script src="js/translations.js"></script>
+  <script src="js/news-details.js"></script>
   <script src="js/i18n-init.js"></script>
   <script src="js/script.js"></script>
 </body>
