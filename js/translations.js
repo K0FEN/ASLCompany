@@ -130,7 +130,7 @@ const translations = {
     'assortment.oils.title': 'Оливи',
     'assortment.batteries.title': 'Акумулятори',
     'assortment.chem.title': 'Автохімія',
-    'assortment.coolants.title': 'Антифриз',
+    'assortment.coolants.title': 'Охолоджуючі рідини',
     'assortment.brakes.title': 'Гальмівні рідини',
     'assortment.filters.title': 'Фільтри',
     'assortment.washer.title': 'Омивач скла',
@@ -145,6 +145,7 @@ const translations = {
     // Brand page
     'brand.hero.title': 'Бренд',
     'brand.hero.text': 'Інформація про бренд',
+    'brand.distributor': 'Офіційний дистрибютор в Україні ASL Company',
     'brand.products.title': 'Продукція',
     'brand.button': 'Зв\'язатися з нами',
     'brand.back': 'Назад до асортименту',
@@ -358,6 +359,7 @@ const translations = {
     // Brand page
     'brand.hero.title': 'Бренд',
     'brand.hero.text': 'Информация о бренде',
+    'brand.distributor': 'Официальный дистрибьютор в Украине ASL Company',
     'brand.products.title': 'Продукция',
     'brand.button': 'Связаться с нами',
     'brand.back': 'Назад к ассортименту',
@@ -570,6 +572,7 @@ const translations = {
     // Brand page
     'brand.hero.title': 'Brand',
     'brand.hero.text': 'Brand Information',
+    'brand.distributor': 'Official Distributor in Ukraine ASL Company',
     'brand.products.title': 'Products',
     'brand.button': 'Contact Us',
     'brand.back': 'Back to Assortment',

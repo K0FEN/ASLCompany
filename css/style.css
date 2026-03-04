@@ -1073,6 +1073,16 @@ html, body { overflow-x: hidden; }
     flex: 0 0 100%;
     min-width: 100%;
   }
+
+  .main__distributor {
+    padding: 0.6rem 1rem;
+    margin-top: 0.75rem;
+    border-width: 1.5px;
+  }
+
+  .main__distributor-text {
+    font-size: 0.9rem;
+  }
 }
 
 /* medium screens: 3 cards per view */
@@ -1365,6 +1375,28 @@ html, body { overflow-x: hidden; }
 /* ****************ABOUT PAGE**************** */
 .main__text_pages {
   max-width: 37.5rem;
+}
+
+.main__distributor {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 37.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main__distributor-text {
+  font-size: 1.1rem;
+  color: #D4AF37;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .main__container_pages {
@@ -2430,6 +2462,15 @@ iframe {
 
   .main__container_pages {
     padding-top: 290px;
+  }
+
+  .main__distributor {
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .main__distributor-text {
+    font-size: 1rem;
   }
 
   .main__title {
