@@ -7,7 +7,7 @@ const newsDetails = {
       category: "Продукція",
       image: "Materials/oil.jpg",
       content: `
-        <p>Раді повідомити про значне розширення нашого асортименту моторних олив! Тепер у нас представлені нові лінійки від провідних світових виробників: Highway, VENOL, Kixx та інших брендів.</p>
+        <p>Раді повідомити про значне розширення нашого асортименту моторних олив! Тепер у нас представлені нові лінійки від провідних світових виробників: HighWay, VENOL, Kixx та інших брендів.</p>
         
         <p>Нові продукти відповідають найсучаснішим стандартам якості та підходять для всіх типів двигунів - бензинових, дизельних, турбованих та гібридних.</p>
         
@@ -157,7 +157,7 @@ const newsDetails = {
       category: "Продукция",
       image: "Materials/oil.jpg",
       content: `
-        <p>Рады сообщить о значительном расширении нашего ассортимента моторных масел! Теперь у нас представлены новые линейки от ведущих мировых производителей: Highway, VENOL, Kixx и других брендов.</p>
+        <p>Рады сообщить о значительном расширении нашего ассортимента моторных масел! Теперь у нас представлены новые линейки от ведущих мировых производителей: HighWay, VENOL, Kixx и других брендов.</p>
         
         <p>Новые продукты соответствуют самым современным стандартам качества и подходят для всех типов двигателей - бензиновых, дизельных, турбированных и гибридных.</p>
         
@@ -307,7 +307,7 @@ const newsDetails = {
       category: "Products",
       image: "Materials/oil.jpg",
       content: `
-        <p>We are pleased to announce a significant expansion of our motor oil range! We now feature new lines from leading global manufacturers: Highway, VENOL, Kixx, and other brands.</p>
+        <p>We are pleased to announce a significant expansion of our motor oil range! We now feature new lines from leading global manufacturers: HighWay, VENOL, Kixx, and other brands.</p>
         
         <p>The new products meet the most modern quality standards and are suitable for all engine types - gasoline, diesel, turbocharged, and hybrid.</p>
         
