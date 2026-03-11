@@ -5,7 +5,7 @@ const newsDetails = {
       title: "Розширення асортименту моторних олив",
       date: "15 грудня 2025",
       category: "Продукція",
-      image: "Materials/oil.jpg",
+      image: "Materials/oil.webp",
       content: `
         <p>Раді повідомити про значне розширення нашого асортименту моторних олив! Тепер у нас представлені нові лінійки від провідних світових виробників: HighWay, VENOL, Kixx та інших брендів.</p>
         
@@ -29,7 +29,7 @@ const newsDetails = {
       title: "Нові акумулятори Quantum та Force Racing",
       date: "10 грудня 2025",
       category: "Продукція",
-      image: "Materials/AKM.jpg",
+      image: "Materials/AKM.webp",
       content: `
         <p>Поповнили склад якісними акумуляторами від перевірених виробників Quantum та Force Racing. Гарантія до 3 років на всю продукцію!</p>
         
@@ -51,7 +51,7 @@ const newsDetails = {
       title: "Знижки на автохімію до кінця року",
       date: "5 грудня 2025",
       category: "Акції",
-      image: "Materials/Avtohim.jpg",
+      image: "Materials/Avtohim.webp",
       content: `
         <p>Спеціальна пропозиція для наших клієнтів — знижки до 15% на всю автохімію від провідних брендів K2, Atas та PiTon!</p>
         
@@ -75,7 +75,7 @@ const newsDetails = {
       title: "Розширення географії доставки",
       date: "1 грудня 2025",
       category: "Сервіс",
-      image: "Materials/fonassortiment.jpg",
+      image: "Materials/fonassortiment.webp",
       content: `
         <p>Тепер доставляємо продукцію по всій Україні! Швидка відправка та надійна упаковка товарів гарантовані.</p>
         
@@ -99,7 +99,7 @@ const newsDetails = {
       title: "Фільтри WIX та KNECHT в наявності",
       date: "25 листопада 2025",
       category: "Продукція",
-      image: "Materials/filter.jpg",
+      image: "Materials/filter.webp",
       content: `
         <p>Великий вибір повітряних, масляних та паливних фільтрів від європейських виробників WIX та KNECHT тепер в наявності на нашому складі!</p>
         
@@ -123,7 +123,7 @@ const newsDetails = {
       title: "Підготовка до зими: антифризи",
       date: "20 листопада 2025",
       category: "Продукція",
-      image: "Materials/Antifriz.jpg",
+      image: "Materials/Antifriz.webp",
       content: `
         <p>Широкий вибір охолоджуючих рідин для підготовки вашого авто до зимового сезону. Якісні антифризи від перевірених виробників за доступними цінами!</p>
         
@@ -155,7 +155,7 @@ const newsDetails = {
       title: "Расширение ассортимента моторных масел",
       date: "15 декабря 2025",
       category: "Продукция",
-      image: "Materials/oil.jpg",
+      image: "Materials/oil.webp",
       content: `
         <p>Рады сообщить о значительном расширении нашего ассортимента моторных масел! Теперь у нас представлены новые линейки от ведущих мировых производителей: HighWay, VENOL, Kixx и других брендов.</p>
         
@@ -179,7 +179,7 @@ const newsDetails = {
       title: "Новые аккумуляторы Quantum и Force Racing",
       date: "10 декабря 2025",
       category: "Продукция",
-      image: "Materials/AKM.jpg",
+      image: "Materials/AKM.webp",
       content: `
         <p>Пополнили склад качественными аккумуляторами от проверенных производителей Quantum и Force Racing. Гарантия до 3 лет на всю продукцию!</p>
         
@@ -201,7 +201,7 @@ const newsDetails = {
       title: "Скидки на автохимию до конца года",
       date: "5 декабря 2025",
       category: "Акции",
-      image: "Materials/Avtohim.jpg",
+      image: "Materials/Avtohim.webp",
       content: `
         <p>Специальное предложение для наших клиентов — скидки до 15% на всю автохимию от ведущих брендов K2, Atas и PiTon!</p>
         
@@ -225,7 +225,7 @@ const newsDetails = {
       title: "Расширение географии доставки",
       date: "1 декабря 2025",
       category: "Сервис",
-      image: "Materials/fonassortiment.jpg",
+      image: "Materials/fonassortiment.webp",
       content: `
         <p>Теперь доставляем продукцию по всей Украине! Быстрая отправка и надежная упаковка товаров гарантированы.</p>
         
@@ -249,7 +249,7 @@ const newsDetails = {
       title: "Фильтры WIX и KNECHT в наличии",
       date: "25 ноября 2025",
       category: "Продукция",
-      image: "Materials/filter.jpg",
+      image: "Materials/filter.webp",
       content: `
         <p>Большой выбор воздушных, масляных и топливных фильтров от европейских производителей WIX и KNECHT теперь в наличии на нашем складе!</p>
         
@@ -273,7 +273,7 @@ const newsDetails = {
       title: "Подготовка к зиме: антифризы",
       date: "20 ноября 2025",
       category: "Продукция",
-      image: "Materials/Antifriz.jpg",
+      image: "Materials/Antifriz.webp",
       content: `
         <p>Широкий выбор охлаждающих жидкостей для подготовки вашего авто к зимнему сезону. Качественные антифризы от проверенных производителей по доступным ценам!</p>
         
@@ -305,7 +305,7 @@ const newsDetails = {
       title: "Expansion of Motor Oil Range",
       date: "December 15, 2025",
       category: "Products",
-      image: "Materials/oil.jpg",
+      image: "Materials/oil.webp",
       content: `
         <p>We are pleased to announce a significant expansion of our motor oil range! We now feature new lines from leading global manufacturers: HighWay, VENOL, Kixx, and other brands.</p>
         
@@ -329,7 +329,7 @@ const newsDetails = {
       title: "New Quantum and Force Racing Batteries",
       date: "December 10, 2025",
       category: "Products",
-      image: "Materials/AKM.jpg",
+      image: "Materials/AKM.webp",
       content: `
         <p>We have stocked up with quality batteries from trusted manufacturers Quantum and Force Racing. Up to 3 years warranty on all products!</p>
         
@@ -351,7 +351,7 @@ const newsDetails = {
       title: "Discounts on Auto Chemistry Until Year End",
       date: "December 5, 2025",
       category: "Promotions",
-      image: "Materials/Avtohim.jpg",
+      image: "Materials/Avtohim.webp",
       content: `
         <p>Special offer for our customers — discounts up to 15% on all auto chemistry from leading brands K2, Atas, and PiTon!</p>
         
@@ -375,7 +375,7 @@ const newsDetails = {
       title: "Delivery Geography Expansion",
       date: "December 1, 2025",
       category: "Service",
-      image: "Materials/fonassortiment.jpg",
+      image: "Materials/fonassortiment.webp",
       content: `
         <p>We now deliver products throughout Ukraine! Fast shipping and reliable product packaging guaranteed.</p>
         
@@ -399,7 +399,7 @@ const newsDetails = {
       title: "WIX and KNECHT Filters in Stock",
       date: "November 25, 2025",
       category: "Products",
-      image: "Materials/filter.jpg",
+      image: "Materials/filter.webp",
       content: `
         <p>Large selection of air, oil, and fuel filters from European manufacturers WIX and KNECHT now available in our warehouse!</p>
         
@@ -423,7 +423,7 @@ const newsDetails = {
       title: "Winter Preparation: Antifreeze",
       date: "November 20, 2025",
       category: "Products",
-      image: "Materials/Antifriz.jpg",
+      image: "Materials/Antifriz.webp",
       content: `
         <p>Wide selection of coolants to prepare your car for the winter season. Quality antifreeze from trusted manufacturers at affordable prices!</p>
         

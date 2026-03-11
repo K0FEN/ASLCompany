@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /components/
+Disallow: /test-*.html
+
+Sitemap: https://aslcompany.com.ua/sitemap.xml

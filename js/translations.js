@@ -111,6 +111,12 @@ const translations = {
     'contact.info.title': 'Зв\'яжіться з нами',
     'contact.info.text1': 'Ми завжди раді відповісти на ваші питання та надати професійну консультацію щодо нашої продукції. Наша команда експертів готова допомогти вам з вибором правильних рішень для вашого автомобіля.',
     'contact.info.text2': 'Скористайтесь формою зворотного зв\'язку або зв\'яжіться з нами безпосередньо за вказаними контактами.',
+    'contact.form.title': 'Напишіть нам',
+    'contact.form.name': 'Ваше ім\'я',
+    'contact.form.phone': 'Телефон',
+    'contact.form.email': 'Email',
+    'contact.form.message': 'Повідомлення',
+    'contact.form.submit': 'Надіслати',
     
     // About page
     'about.hero.title': 'Про нас',
@@ -203,9 +209,33 @@ const translations = {
     'vacancies.outro.text': 'Зацікавила вакансія? Надішліть своє резюме або зателефонуйте нам для отримання додаткової інформації.',
     'vacancies.outro.button': 'Контакти',
     
+    // Services page
+    'services.hero.title': 'Послуги',
+    'services.hero.text': 'Комплексні рішення для вашого бізнесу та автомобіля',
+    'services.wholesale.title': 'Оптові поставки',
+    'services.wholesale.text1': 'Пропонуємо вигідні умови для оптових покупців: магазинів, автосервісів, оптових баз та підприємств. Гнучка система знижок залежно від обсягу замовлення.',
+    'services.wholesale.text2': 'Працюємо з повним пакетом документів, надаємо сертифікати якості на всю продукцію.',
+    'services.retail.title': 'Роздрібний продаж',
+    'services.retail.text1': 'Широкий асортимент автомобільної продукції для кожного автовласника. Якісні оливи, акумулятори, автохімія, фільтри та аксесуари від перевірених брендів.',
+    'services.retail.text2': 'Наші спеціалісти допоможуть підібрати потрібну продукцію саме для вашого автомобіля.',
+    'services.delivery.title': 'Доставка по Україні',
+    'services.delivery.text1': 'Здійснюємо доставку продукції по всій території України. Швидка відправка, надійна упаковка та відстеження замовлення на кожному етапі.',
+    'services.delivery.text2': 'Для постійних клієнтів — спеціальні умови доставки та індивідуальний графік поставок.',
+    'services.button': 'Замовити',
+    'services.catalog': 'Каталог',
+    'services.outro.title': 'Потрібна консультація?',
+    'services.outro.text': 'Наша команда завжди готова допомогти вам з вибором продукції та відповісти на всі запитання. Зв\'яжіться з нами зручним для вас способом.',
+    'services.outro.button': 'Контакти',
+    
     // Footer
     'footer.policy': 'Політика конфіденційності – Умови використання',
     'footer.copyright': 'Copyright © 2025 ASL Company – Всі права захищені',
+    
+    // Cookie banner
+    'cookie.text': 'Ми використовуємо файли cookie для покращення роботи сайту.',
+    'cookie.policy': 'Політика конфіденційності',
+    'cookie.accept': 'Прийняти',
+    'cookie.decline': 'Відхилити',
     
     // Common
     'common.learnmore': 'Дізнатися більше',
@@ -325,6 +355,12 @@ const translations = {
     'contact.info.title': 'Свяжитесь с нами',
     'contact.info.text1': 'Мы всегда рады ответить на ваши вопросы и предоставить профессиональную консультацию по нашей продукции. Наша команда экспертов готова помочь вам с выбором правильных решений для вашего автомобиля.',
     'contact.info.text2': 'Воспользуйтесь формой обратной связи или свяжитесь с нами напрямую по указанным контактам.',
+    'contact.form.title': 'Напишите нам',
+    'contact.form.name': 'Ваше имя',
+    'contact.form.phone': 'Телефон',
+    'contact.form.email': 'Email',
+    'contact.form.message': 'Сообщение',
+    'contact.form.submit': 'Отправить',
     
     // About page
     'about.hero.title': 'О нас',
@@ -418,9 +454,33 @@ const translations = {
     'vacancies.outro.text': 'Заинтересовала вакансия? Отправьте свое резюме или позвоните нам для получения дополнительной информации.',
     'vacancies.outro.button': 'Контакты',
     
+    // Services page
+    'services.hero.title': 'Услуги',
+    'services.hero.text': 'Комплексные решения для вашего бизнеса и автомобиля',
+    'services.wholesale.title': 'Оптовые поставки',
+    'services.wholesale.text1': 'Предлагаем выгодные условия для оптовых покупателей: магазинов, автосервисов, оптовых баз и предприятий. Гибкая система скидок в зависимости от объема заказа.',
+    'services.wholesale.text2': 'Работаем с полным пакетом документов, предоставляем сертификаты качества на всю продукцию.',
+    'services.retail.title': 'Розничная продажа',
+    'services.retail.text1': 'Широкий ассортимент автомобильной продукции для каждого автовладельца. Качественные масла, аккумуляторы, автохимия, фильтры и аксессуары от проверенных брендов.',
+    'services.retail.text2': 'Наши специалисты помогут подобрать нужную продукцию именно для вашего автомобиля.',
+    'services.delivery.title': 'Доставка по Украине',
+    'services.delivery.text1': 'Осуществляем доставку продукции по всей территории Украины. Быстрая отправка, надежная упаковка и отслеживание заказа на каждом этапе.',
+    'services.delivery.text2': 'Для постоянных клиентов — специальные условия доставки и индивидуальный график поставок.',
+    'services.button': 'Заказать',
+    'services.catalog': 'Каталог',
+    'services.outro.title': 'Нужна консультация?',
+    'services.outro.text': 'Наша команда всегда готова помочь вам с выбором продукции и ответить на все вопросы. Свяжитесь с нами удобным для вас способом.',
+    'services.outro.button': 'Контакты',
+    
     // Footer
     'footer.policy': 'Политика конфиденциальности – Условия использования',
     'footer.copyright': 'Copyright © 2025 ASL Company – Все права защищены',
+    
+    // Cookie banner
+    'cookie.text': 'Мы используем файлы cookie для улучшения работы сайта.',
+    'cookie.policy': 'Политика конфиденциальности',
+    'cookie.accept': 'Принять',
+    'cookie.decline': 'Отклонить',
     
     // Common
     'common.learnmore': 'Узнать больше',
@@ -540,6 +600,12 @@ const translations = {
     'contact.info.title': 'Contact Us',
     'contact.info.text1': 'We are always happy to answer your questions and provide professional consultation on our products. Our team of experts is ready to help you choose the right solutions for your vehicle.',
     'contact.info.text2': 'Use the feedback form or contact us directly using the provided contacts.',
+    'contact.form.title': 'Write to Us',
+    'contact.form.name': 'Your Name',
+    'contact.form.phone': 'Phone',
+    'contact.form.email': 'Email',
+    'contact.form.message': 'Message',
+    'contact.form.submit': 'Send',
     
     // About page
     'about.hero.title': 'About Us',
@@ -632,9 +698,33 @@ const translations = {
     'vacancies.outro.text': 'Interested in a vacancy? Send your resume or call us for more information.',
     'vacancies.outro.button': 'Contacts',
     
+    // Services page
+    'services.hero.title': 'Services',
+    'services.hero.text': 'Comprehensive solutions for your business and vehicle',
+    'services.wholesale.title': 'Wholesale Supply',
+    'services.wholesale.text1': 'We offer favorable conditions for wholesale buyers: stores, car services, wholesale bases, and enterprises. Flexible discount system depending on order volume.',
+    'services.wholesale.text2': 'We work with a full package of documents and provide quality certificates for all products.',
+    'services.retail.title': 'Retail Sales',
+    'services.retail.text1': 'A wide range of automotive products for every car owner. Quality oils, batteries, auto chemicals, filters, and accessories from trusted brands.',
+    'services.retail.text2': 'Our specialists will help you select the right products specifically for your vehicle.',
+    'services.delivery.title': 'Delivery Across Ukraine',
+    'services.delivery.text1': 'We deliver products throughout Ukraine. Fast shipping, reliable packaging, and order tracking at every stage.',
+    'services.delivery.text2': 'For regular customers — special delivery conditions and individual supply schedules.',
+    'services.button': 'Order',
+    'services.catalog': 'Catalog',
+    'services.outro.title': 'Need Consultation?',
+    'services.outro.text': 'Our team is always ready to help you choose products and answer all your questions. Contact us in any way convenient for you.',
+    'services.outro.button': 'Contacts',
+    
     // Footer
     'footer.policy': 'Privacy Policy – Terms of Use',
     'footer.copyright': 'Copyright © 2025 ASL Company – All Rights Reserved',
+    
+    // Cookie banner
+    'cookie.text': 'We use cookies to improve your browsing experience.',
+    'cookie.policy': 'Privacy Policy',
+    'cookie.accept': 'Accept',
+    'cookie.decline': 'Decline',
     
     // Common
     'common.learnmore': 'Learn More',
