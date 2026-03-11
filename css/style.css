@@ -380,7 +380,7 @@ html, body { overflow-x: hidden; }
 /* *****************HOME**************** */
 
 .main {
-  background: url("../img/home/background_placeholder.png") center / cover no-repeat;
+  background: url("../img/home/background_placeholder.webp") center / cover no-repeat;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -534,7 +534,7 @@ html, body { overflow-x: hidden; }
 /* ************ABOUT**************** */
 
 .main_about {
-  background: url("../Materials/photo_2025-10-28_22-23-00.jpg") center top / cover no-repeat;
+  background: url("../Materials/photo_2025-10-28_22-23-00.webp") center top / cover no-repeat;
   position: relative;
 }
 
@@ -592,7 +592,7 @@ html, body { overflow-x: hidden; }
 }
 
 .outro_about {
-  background: url("../Materials/photo_2025-10-28_22-23-00.jpg") center bottom / cover no-repeat;
+  background: url("../Materials/photo_2025-10-28_22-23-00.webp") center bottom / cover no-repeat;
   position: relative;
 }
 
@@ -615,7 +615,7 @@ html, body { overflow-x: hidden; }
 /* **************SERVICES**************** */
 
 .main_services {
-  background: url("../Materials/fonassortiment.jpg") center top / cover no-repeat;
+  background: url("../Materials/fonassortiment.webp") center top / cover no-repeat;
   position: relative;
 }
 
@@ -637,7 +637,7 @@ html, body { overflow-x: hidden; }
 
 /* Brand page specific background */
 .brand-page .main_services {
-  background: url("../Materials/fonassortiment.jpg") center top / cover no-repeat;
+  background: url("../Materials/fonassortiment.webp") center top / cover no-repeat;
 }
 
 /* Brand website link styling */
@@ -997,7 +997,7 @@ html, body { overflow-x: hidden; }
 }
 
 .outro_services {
-  background: url("../Materials/fonassortiment.jpg") center bottom / cover no-repeat;
+  background: url("../Materials/fonassortiment.webp") center bottom / cover no-repeat;
   position: relative;
 }
 
@@ -1482,7 +1482,7 @@ html, body { overflow-x: hidden; }
 /* ****************CONTACT PAGE****************/
 
 .main_contact {
-  background: url("../Materials/cc27128215dfe8dca949e740c59b9281.jpg") center / cover no-repeat;
+  background: url("../Materials/cc27128215dfe8dca949e740c59b9281.webp") center / cover no-repeat;
   position: relative;
 }
 
