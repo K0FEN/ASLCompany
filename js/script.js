@@ -153,6 +153,8 @@ function initScrollReveal() {
       ".contact__form-wrapper",
       ".contact-form__group",
       ".vacancy-card",
+      ".reviews-section__title",
+      ".news-filter",
     ].join(",")
   );
 
@@ -494,6 +496,35 @@ function initBrandCarousels() {
     carousel.addEventListener('mouseenter', () => { clearInterval(timer); });
     carousel.addEventListener('mouseleave', () => { timer = setInterval(next, 2000); });
 
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+    const SWIPE_THRESHOLD = 40;
+
+    viewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isSwiping = true;
+      clearInterval(timer);
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      const dx = Math.abs(e.touches[0].clientX - touchStartX);
+      const dy = Math.abs(e.touches[0].clientY - touchStartY);
+      if (dx > dy && dx > 10) e.preventDefault();
+    }, { passive: false });
+
+    viewport.addEventListener('touchend', (e) => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (dx < -SWIPE_THRESHOLD) next();
+      else if (dx > SWIPE_THRESHOLD) prev();
+      timer = setInterval(next, 2000);
+    }, { passive: true });
+
     viewAllBtn.addEventListener('click', (e) => {
       e.preventDefault();
       
@@ -592,8 +623,8 @@ function initBrandCarousels() {
         <main class="page">
         <section class="page__main main main_services main_pages" style="background:url('${categoryBackground}') center top/cover no-repeat;">
           <div class="main__container main__container_pages">
-            <h1 class="main__title" data-i18n-dynamic="${sectionId}">${title}</h1>
-            <div class="main__text main__text_pages" data-i18n-dynamic="${sectionId}-desc">${categoryDescription}</div>
+            <h1 class="main__title hero-reveal hero-reveal--2" data-i18n-dynamic="${sectionId}">${title}</h1>
+            <div class="main__text main__text_pages hero-reveal hero-reveal--3" data-i18n-dynamic="${sectionId}-desc">${categoryDescription}</div>
           </div>
         </section>
         <section class="page__services services">
@@ -1735,6 +1766,136 @@ function initBrandAnimations() {
 
 document.addEventListener('DOMContentLoaded', initBrandAnimations);
 
+// ========= Brand page: Product Lightbox =========
+function initProductLightbox() {
+  const isBrandPage = window.location.pathname.includes('brand.html');
+  if (!isBrandPage) return;
+
+  const images = document.querySelectorAll('.brand__product-image');
+  if (!images.length) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'product-lightbox';
+  overlay.innerHTML = `
+    <button class="product-lightbox__close" aria-label="Закрити">&times;</button>
+    <button class="product-lightbox__arrow product-lightbox__arrow--prev" aria-label="Попереднє">&#8249;</button>
+    <img class="product-lightbox__image" src="" alt="" />
+    <button class="product-lightbox__arrow product-lightbox__arrow--next" aria-label="Наступне">&#8250;</button>
+    <div class="product-lightbox__counter"></div>
+    <div class="product-lightbox__dots"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  const lbImg = overlay.querySelector('.product-lightbox__image');
+  const lbCounter = overlay.querySelector('.product-lightbox__counter');
+  const lbDots = overlay.querySelector('.product-lightbox__dots');
+  const btnClose = overlay.querySelector('.product-lightbox__close');
+  const btnPrev = overlay.querySelector('.product-lightbox__arrow--prev');
+  const btnNext = overlay.querySelector('.product-lightbox__arrow--next');
+
+  let currentIndex = 0;
+  let srcs = [];
+  let transitioning = false;
+  const FADE_DURATION = 200;
+
+  function collectImages() {
+    srcs = Array.from(document.querySelectorAll('.brand__product-image')).map(img => img.src);
+  }
+
+  function buildDots() {
+    lbDots.innerHTML = '';
+    srcs.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'product-lightbox__dot' + (i === currentIndex ? ' active' : '');
+      dot.addEventListener('click', () => fadeTo(i));
+      lbDots.appendChild(dot);
+    });
+  }
+
+  function updateDots() {
+    lbDots.querySelectorAll('.product-lightbox__dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function showInstant(idx) {
+    currentIndex = idx;
+    lbImg.src = srcs[currentIndex];
+    lbCounter.textContent = `${currentIndex + 1} / ${srcs.length}`;
+    btnPrev.style.display = srcs.length > 1 ? 'flex' : 'none';
+    btnNext.style.display = srcs.length > 1 ? 'flex' : 'none';
+    updateDots();
+  }
+
+  function fadeTo(idx) {
+    if (transitioning || idx === currentIndex) return;
+    transitioning = true;
+    lbImg.classList.add('fade-out');
+    setTimeout(() => {
+      currentIndex = idx;
+      lbImg.src = srcs[currentIndex];
+      lbCounter.textContent = `${currentIndex + 1} / ${srcs.length}`;
+      updateDots();
+      lbImg.classList.remove('fade-out');
+      setTimeout(() => { transitioning = false; }, FADE_DURATION);
+    }, FADE_DURATION);
+  }
+
+  function open(idx) {
+    collectImages();
+    buildDots();
+    showInstant(idx);
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function next() { fadeTo((currentIndex + 1) % srcs.length); }
+  function prev() { fadeTo((currentIndex - 1 + srcs.length) % srcs.length); }
+
+  images.forEach((img, i) => {
+    img.closest('.brand__product-item').addEventListener('click', () => open(i));
+  });
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // Touch swipe for mobile
+  let touchStartX = 0;
+  let isSwiping = false;
+  const SWIPE_THRESHOLD = 50;
+
+  overlay.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    isSwiping = true;
+  }, { passive: true });
+
+  overlay.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+    isSwiping = false;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (dx < -SWIPE_THRESHOLD) next();
+    else if (dx > SWIPE_THRESHOLD) prev();
+  }, { passive: true });
+}
+
+document.addEventListener('DOMContentLoaded', initProductLightbox);
 
 // ========= Multi-language support =========
 function initLanguageSystem() {

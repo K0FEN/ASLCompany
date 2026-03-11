@@ -452,12 +452,14 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
     gap: 1rem;
     padding: 0 0 1rem 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     justify-content: flex-start;
+    overscroll-behavior-x: contain;
   }
   
   .news__row::-webkit-scrollbar {
@@ -613,6 +615,7 @@
   }
 
   .assortment .brand-carousel {
+    --brand-gap: 52px;
     position: relative;
     overflow: visible;
     margin: 2rem 0 0;
