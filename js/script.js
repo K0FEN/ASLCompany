@@ -1090,7 +1090,7 @@ function initBrandPage() {
     // Автохімія
     'K2': {
       name: 'K2',
-      image: 'Materials/K2.webp',
+      image: 'Materials/K2L.webp',
       factoryLogo: 'Materials/K23.webp',
       productImage1: 'Materials/K21.webp',
       productImage2: 'Materials/K22.webp',
