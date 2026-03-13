@@ -574,7 +574,7 @@ function initBrandCarousels() {
       const listHtml = logos.map(({href,src,alt}) =>
         `<a href="${href}"><img src="${src}" alt="${alt}"></a>`
       ).join('');
-      const html = `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} - ASL Company</title><link rel="stylesheet" href="css/style.css?v=4" /><link rel="stylesheet" href="css/responsive-new.css?v=6" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" /></head><body>
+      const html = `<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} - ASL Company</title><link rel="stylesheet" href="css/style.css?v=4" /><link rel="stylesheet" href="css/responsive-new.css?v=6" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" /></head><body class="allbrands-page">
         <div class="wrapper">
         <header class="header">
           <div class="header__container">

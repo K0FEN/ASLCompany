@@ -68,6 +68,33 @@ body {
   font-size: 1.1rem;
   color: #e8e8e8;
   background-color: #0a0a0a;
+  background-image: url("../img/back/Desktop (1920-2560px).png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 440px) {
+  body {
+    background-image: url("../img/back/Mobile (up to 440px).png");
+  }
+}
+
+/* Background image visible on specific pages/sections */
+body.assortment .services,
+body.allbrands-page .services {
+  background: transparent;
+}
+
+body.brand-page .brand,
+body.brand-page .back-button {
+  background: transparent;
+}
+
+
+.page__news.news {
+  background: transparent;
 }
 
 html {
