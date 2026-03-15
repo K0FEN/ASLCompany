@@ -230,7 +230,7 @@ function addContactPageAttributes() {
     if (index === 1) title.setAttribute('data-i18n', 'contact.info.title');
   });
   
-  const contactTypes = document.querySelectorAll('.connect-contant__type');
+  const contactTypes = document.querySelectorAll('.connect-contact__type');
   contactTypes.forEach(type => {
     const text = type.textContent.trim();
     if (text === 'Телефон') type.setAttribute('data-i18n', 'contact.phone');

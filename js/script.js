@@ -102,37 +102,6 @@ function initCarousels() {
 
 document.addEventListener("DOMContentLoaded", initCarousels);
 
-const spollerButtons = document.querySelectorAll("[data-spoller] .spollers-faq__button");
-
-spollerButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const currentItem = button.closest("[data-spoller]");
-    const content = currentItem.querySelector(".spollers-faq__text");
-
-    const parent = currentItem.parentNode;
-    const isOneSpoller = parent.hasAttribute("data-one-spoller");
-
-    if (isOneSpoller) {
-      const allItems = parent.querySelectorAll("[data-spoller]");
-      allItems.forEach((item) => {
-        if (item !== currentItem) {
-          const otherContent = item.querySelector(".spollers-faq__text");
-          item.classList.remove("active");
-          otherContent.style.maxHeight = null;
-        }
-      });
-    }
-
-    if (currentItem.classList.contains("active")) {
-      currentItem.classList.remove("active");
-      content.style.maxHeight = null;
-    } else {
-      currentItem.classList.add("active");
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-});
-
 // Scroll reveal animations
 function initScrollReveal() {
   const targets = document.querySelectorAll(
@@ -1483,27 +1452,27 @@ function initBrandPage() {
   // Update brand logo
   const brandLogoElement = document.getElementById('brand-logo');
   if (brandLogoElement) {
-    brandLogoElement.src = brandData.image || 'img/home/services_placeholder.webp';
+    brandLogoElement.src = brandData.image || 'Materials/erasebg-transformed.webp';
     brandLogoElement.alt = `${brandData.name} логотип`;
   }
 
   // Update factory logo (use brand image as placeholder if factory logo not provided)
   const factoryLogoElement = document.getElementById('factory-logo');
   if (factoryLogoElement) {
-    factoryLogoElement.src = brandData.factoryLogo || brandData.image || 'img/home/services_placeholder.webp';
+    factoryLogoElement.src = brandData.factoryLogo || brandData.image || 'Materials/erasebg-transformed.webp';
     factoryLogoElement.alt = `${brandData.name} логотип заводу`;
   }
 
   // Update product images (use brand image as placeholder if product images not provided)
   const productImage1 = document.getElementById('product-image-1');
   if (productImage1) {
-    productImage1.src = brandData.productImage1 || brandData.image || 'img/home/services_placeholder.webp';
+    productImage1.src = brandData.productImage1 || brandData.image || 'Materials/erasebg-transformed.webp';
     productImage1.alt = `${brandData.name} продукція 1`;
   }
 
   const productImage2 = document.getElementById('product-image-2');
   if (productImage2) {
-    productImage2.src = brandData.productImage2 || brandData.image || 'img/home/services_placeholder.webp';
+    productImage2.src = brandData.productImage2 || brandData.image || 'Materials/erasebg-transformed.webp';
     productImage2.alt = `${brandData.name} продукція 2`;
   }
 
